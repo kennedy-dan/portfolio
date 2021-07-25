@@ -63,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
       minWidth: "150px",
       marginLeft: "10px",
     },
-    // background: 'red'
   },
   activeCard: {
     opacity: 1,
@@ -71,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     transform: "scale(1)",
     boxShadow: "0px 9px 15px rgba(0,0,0,0.4)",
-    // borderRadius:'50%'
     [theme.breakpoints.down("xs")]: {
       minWidth: "150px",
       marginLeft: "40px",
@@ -116,8 +114,6 @@ const Strength = (props) => {
   const [property, setProperty] = useState(data.properties[0]);
   const [animate, setAnimate] = useState(false);
 
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const nextProperty = () => {

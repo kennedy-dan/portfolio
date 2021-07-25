@@ -13,7 +13,6 @@ import {
 import { fade, makeStyles } from "@material-ui/core/styles";
 import mainp from "../Assets/cnt.svg";
 import { Facebook, Twitter, Instagram, Email } from "@material-ui/icons";
-// import FacebookIcon from '@material-ui/icons/Facebook';
 
 /**
  * @author
@@ -34,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     ...theme.typography.btn,
-
     width: 105,
     height: 25,
     marginTop: "10px",
@@ -52,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       width: "150px",
     },
-    // minWidth: 120,
   },
   iconCard: {
     borderRadius: "50%",
