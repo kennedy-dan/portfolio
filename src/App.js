@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import React from "react";
 import Header from "./UI/Header";
 import theme from "./UI/Theme";
