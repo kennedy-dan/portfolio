@@ -1,11 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 import {
-  Grid,
-  Typography,
-  Container,
-  Button,
-  useMediaQuery,
-  useTheme
+ 
 } from "@material-ui/core";
 
 const greenTheme = "#197519";
