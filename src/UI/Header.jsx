@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { fade, makeStyles, useTheme } from "@material-ui/core/styles";
+import {  makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
 import ClearIcon from "@material-ui/icons/Clear";
-import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
+
 import {
   Tabs,
   Tab,
@@ -21,7 +20,6 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
-import { isCompositeComponent } from "react-dom/test-utils";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -211,19 +209,7 @@ export default function Header() {
     bottom: false,
     right: false,
   });
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
+ 
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,

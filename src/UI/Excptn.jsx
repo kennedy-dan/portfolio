@@ -8,7 +8,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import {  makeStyles } from "@material-ui/core/styles";
 
 import data from "../Component/data";
 /**
@@ -112,14 +112,12 @@ const Strength = (props) => {
   const theme = useTheme();
   const [properties, setProperties] = useState(data.properties);
   const [property, setProperty] = useState(data.properties[0]);
-  const [animate, setAnimate] = useState(false);
 
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const nextProperty = () => {
     const newIndex = property.index + 1;
     setProperty(data.properties[newIndex]);
-    setAnimate(true);
   };
   const prevProperty = () => {
     const newIndex = property.index - 1;
@@ -177,6 +175,7 @@ const Strength = (props) => {
                   <img
                     src={props.picture}
                     style={{ width: "120px", marginLeft: "30px" }}
+                    alt='stack'
                   />
                 </CardMedia>
               </Card>

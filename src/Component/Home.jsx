@@ -8,7 +8,7 @@ import {
   useTheme,
 } from "@material-ui/core";
 import mainbg from "../Assets/mainbg1.png";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import {  makeStyles } from "@material-ui/core/styles";
 import Services from "../UI/Services";
 import ServicesII from "../UI/ServicesII";
 import Brands from "../UI/Brands";
@@ -168,7 +168,7 @@ const Home = (props) => {
             </Button>
           </Grid>
           <Grid item justify="center" style={{}} alignItem container xs>
-            <img src={mainp} className={classes.img} />
+            <img src={mainp} alt="descriptive" className={classes.img} />
           </Grid>
         </Grid>
         <React.Fragment>

@@ -3,14 +3,13 @@ import {
   Grid,
   Typography,
   Card,
-  CardContent,
   Button,
   TextField,
   FormControl,
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import {  makeStyles } from "@material-ui/core/styles";
 import mainp from "../Assets/cnt.svg";
 import { Facebook, Twitter, Instagram, Email } from "@material-ui/icons";
 
@@ -152,8 +151,7 @@ const useStyles = makeStyles((theme) => ({
 const Brands = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid
@@ -244,7 +242,7 @@ const Brands = (props) => {
         justify="flex-end"
         alignItems="center"
       >
-        <img src={mainp} className={classes.img} />
+        <img src={mainp} alt='contact' className={classes.img} />
       </Grid>
     </Grid>
   );

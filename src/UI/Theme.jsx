@@ -3,7 +3,6 @@ import {
  
 } from "@material-ui/core";
 
-const greenTheme = "#197519";
 const whiteTheme = "#FFFFFF";
 const darkBlue = "#2a0e49";
 const orange = "#fa9a1c";
