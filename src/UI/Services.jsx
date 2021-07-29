@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     fontWeight: "bolder",
     textAlign: "center",
+    fontFamily: theme.font.primary.main,
 
     color: theme.palette.secondary.main,
     [theme.breakpoints.down("sm")]: {
@@ -42,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bolder",
     textAlign: "center",
     color: theme.palette.primary.main,
+    fontFamily: theme.font.primary.main,
+
     [theme.breakpoints.down("sm")]: {
       fontSize: "24px",
     },
@@ -52,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
   mainheading3: {
     fontSize: "12px",
     textAlign: "center",
+    fontFamily: theme.font.primary.main,
 
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
@@ -65,6 +69,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontSize: "12px",
     paddingTop: "15px",
+    fontFamily: theme.font.primary.main,
+
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
     },
@@ -87,10 +93,11 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     ...theme.typography.btn,
+    fontFamily: theme.font.primary.main,
 
     width: 135,
     height: 25,
-    marginTop: "30px",
+    marginTop: "20px",
     margin:'0 auto',
     [theme.breakpoints.down("sm")]: {
       fontSize: "11px",
@@ -118,6 +125,8 @@ const useStyles = makeStyles((theme) => ({
   },
   design:{
     color: theme.palette.primary.main,
+    fontFamily: theme.font.primary.main,
+
     fontWeight: "bolder"
   }
 }));

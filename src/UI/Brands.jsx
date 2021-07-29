@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bolder",
     color: theme.palette.secondary.main,
     marginBottom: "8px",
+    fontFamily: theme.font.primary.main,
+
   },
   btn: {
     ...theme.typography.btn,

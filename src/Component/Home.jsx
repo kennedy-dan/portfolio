@@ -39,8 +39,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "80px",
     fontWeight: "bolder",
     color: theme.palette.primary.main,
+    fontFamily: theme.font.primary.main,
     [theme.breakpoints.down("md")]: {
-      fontSize: "50px",
+      fontSize: "58px",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "30px",
@@ -51,11 +52,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainHeading2: {
-    fontSize: "60px",
+    fontSize: "78px",
     color: theme.palette.secondary.main,
     fontWeight: "bolder",
+    fontFamily: theme.font.primary.main,
+
     [theme.breakpoints.down("md")]: {
-      fontSize: "50px",
+      fontSize: "56px",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "30px",
@@ -70,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     fontSize: "12px",
     textAlign: "center",
+    fontFamily: theme.font.primary.main,
 
     [theme.breakpoints.down("md")]: {
       fontSize: "12px",
@@ -86,9 +90,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    width: "420px",
+    width: "520px",
     [theme.breakpoints.down("md")]: {
-      width: "320px",
+      width: "390px",
     },
     [theme.breakpoints.down("sm")]: {
       width: "280px",
@@ -103,6 +107,8 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.btn,
     width: 85,
     height: 25,
+    fontFamily: theme.font.primary.main,
+
     marginTop: "30px",
     [theme.breakpoints.down("sm")]: {
       width: 65,

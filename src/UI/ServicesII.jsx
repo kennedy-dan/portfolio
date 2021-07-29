@@ -20,15 +20,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     fontWeight: 400,
     color: theme.palette.secondary.main,
+    fontFamily: theme.font.primary.main,
+
   },
   mainheading1: {
     fontSize: "30px",
     fontWeight: 400,
+    fontFamily: theme.font.primary.main,
+
   },
   cardType: {
     textAlign: "center",
-    fontSize: "12px",
+    fontSize: "10px",
     paddingTop: "15px",
+    fontFamily: theme.font.primary.main,
+    width:'100%',
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
     },
@@ -53,11 +59,20 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "15%",
     marginTop: "30px",
     color: theme.palette.common.white,
+    fontFamily: theme.font.primary.main,
+
   },
   cardbtn: {
     paddingTop: "19px",
     fontSize: "12px",
     color: theme.palette.secondary.main,
+    fontFamily: theme.font.primary.main,
+
+  },
+  design:{
+    fontFamily: theme.font.primary.main,
+    fontWeight: "bolder"
+
   },
   gridii: {
     paddingLeft: "47px",
@@ -113,7 +128,8 @@ const ServicesII = (props) => {
             <Grid container direction="column" alignItems="center">
               <Typography
                 fontWeight="fontWeightBold"
-                style={{ fontWeight: "bolder" }}
+                style={{  }}
+                className={classes.design}
               >
                 Design
               </Typography>

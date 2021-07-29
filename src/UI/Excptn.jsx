@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     fontWeight: "bolder",
     color: theme.palette.secondary.main,
+    fontFamily: theme.font.primary.main,
+
     [theme.breakpoints.down("sm")]: {
       fontSize: "22px",
     },
@@ -81,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "10px",
     marginRight: "7px",
     boxShadow: "0px 9px 15px #fa9a1c",
+    fontFamily: theme.font.primary.main,
 
     color: theme.palette.common.white,
     "&:hover": {
@@ -94,6 +97,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "100% 0% 100% 97% / 100% 0% 0% 100% ",
     background: theme.palette.secondary.main,
     fontSize: "10px",
+    fontFamily: theme.font.primary.main,
+
     boxShadow: "0px 9px 15px #fa9a1c",
 
     color: theme.palette.common.white,
