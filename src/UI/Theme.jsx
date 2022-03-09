@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 import {
  
 } from "@material-ui/core";
@@ -7,11 +7,10 @@ const whiteTheme = "#FFFFFF";
 const darkBlue = "#2a0e49";
 const orange = "#fa9a1c";
 // const lightGreen = '#f9fbf9'
-const fontFamily = "Raleway";
-const lightGreen = "#f9fbf9";
+const fontFamily = "Poppins";
 const blueTheme = "#0B72B9";
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     common: {
       blue: `${blueTheme}`,
@@ -52,4 +51,22 @@ export default createMuiTheme({
       color: "white",
     },
   },
+  overrides:{
+    MuiInputLabel:{
+      root:{
+        color:orange,
+        fontSize:'1rem'
+      }
+    },
+    MuiInput:{
+      underline:{
+        "&:before":{
+          borderBottom:`2px solid ${orange}`
+        },
+        "&:hover:not($disabled):not($focused):not{$error):before": {
+          borderBottom:`2px solid ${orange}`
+        }
+      }
+    }
+  }
 });

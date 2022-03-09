@@ -1,17 +1,15 @@
-import React from "react";
-import {
-  Grid,
-  Typography,
-  Card,
-  Button,
-  TextField,
-  FormControl,
-  useMediaQuery,
-  useTheme,
-} from "@material-ui/core";
-import {  makeStyles } from "@material-ui/core/styles";
-import mainp from "../Assets/cnt.svg";
-import { Facebook, Twitter, Instagram, Email } from "@material-ui/icons";
+import React, { useEffect } from "react";
+import { Grid, Card, useMediaQuery, useTheme } from "@material-ui/core";
+
+import { makeStyles } from "@material-ui/core/styles";
+import contactbg from "../Assets/contact-copy.svg";
+import contacttdown from "../Assets/cntaccc.svg";
+import { Facebook, Twitter, Email, GitHub, LinkedIn } from "@material-ui/icons";
+import cbg from "../Assets/SVG/contactbg.svg";
+
+import "aos/dist/aos.css";
+
+import Aos from "aos";
 
 /**
  * @author
@@ -24,113 +22,291 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bolder",
     color: theme.palette.secondary.main,
   },
+  TextField3: {
+    width: "390px",
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.secondary.main,
+    },
+    "&:hover.MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.secondary.main,
+    },
+    "& .MuiFilledInput-root": {
+      background: "#e4f5fc",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "354px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "250px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
   mainheading1: {
     fontSize: "30px",
     fontWeight: "bolder",
     color: theme.palette.secondary.main,
     marginBottom: "8px",
     fontFamily: theme.font.primary.main,
-
   },
+  TextFieldContainer: {
+    width: "50%",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+    },
+  },
+  TextField1: {
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.secondary.main,
+    },
+    "&:hover.MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.secondary.main,
+    },
+    width: "135px",
+    // marginRight:'6px',
+
+    "& .MuiFilledInput-root": {
+      background: "#e4f5fc",
+    },
+    // [theme.breakpoints.down("md")]: {
+    //   // width: "169px",
+    // },
+    [theme.breakpoints.only("sm")]: {
+      width: "84px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
+  TextField2: {
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.secondary.main,
+    },
+    "&:hover.MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.secondary.main,
+    },
+    "& .MuiFilledInput-root": {
+      background: "#e4f5fc",
+    },
+    width: "135px",
+    [theme.breakpoints.down("md")]: {
+      // width: "169px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "84px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
+  contactMsgGrid: {
+    // width: "40%",
+    position: "relative",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      textAlign: "center",
+    },
+  },
+  contactMsg: {
+    fontSize: "34px",
+    zIndex: 1,
+    position: "absolute",
+    top: "40%",
+    left: "50%",
+    color: theme.palette.common.blue,
+    transform: "translate(-50%, -50%)",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "50px",
+    },
+    [theme.breakpoints.only("sm")]: {
+      fontSize: "30px",
+    },
+    [theme.breakpoints.only("xs")]: {
+      fontSize: "25px",
+    },
+  },
+
+  cintactCoverImg: {},
   btn: {
-    ...theme.typography.btn,
-    width: 105,
-    height: 25,
+    width: "100px",
     marginTop: "10px",
+    // backgroundColor: "#96dcfa",
+    textTransform: "none",
+    fontFamily: "poppins",
+    color: "#457cbf",
+    fontSize: "15px",
+    borderRadius: 10,
+    boxShadow: "0px 9px 15px #fa9a1c",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+      marginTop: "10px",
+    },
+    "&:hover": {
+      backgroundColor: "#96dcfa",
+      boxShadow: "0px 9px 15px black",
+    },
+  },
+  btnMsg: {
+    width: "130px",
+    marginTop: "10px",
+    // padding:'20px',
+    marginLeft: "40px",
+    color: "457cbf",
+    backgroundColor: theme.palette.secondary.main,
+    textTransform: "none",
+    fontFamily: "poppins",
+    fontSize: "15px",
+    borderRadius: 10,
+    boxShadow: "0px 9px 15px #fa9a1c",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+      marginTop: "10px",
+    },
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+      boxShadow: "0px 9px 15px black",
+    },
   },
   mainheading3: {
     fontSize: "13px",
     width: "50%",
   },
-  formControl: {
-    margin: theme.spacing(1),
-    width: "250px",
-    [theme.breakpoints.down("md")]: {
-      width: "200px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "150px",
-    },
-  },
   iconCard: {
     borderRadius: "50%",
-    width: "240px",
-    height: "240px",
-    boxShadow: " 0px 9px 15px #fa9a1c",
-    [theme.breakpoints.down("md")]: {
-      width: "200px",
-      height: "200px",
+    width: "300px",
+    height: "300px",
+    boxShadow: " 0px 9px 15px #457cbf",
+    // transform: "rotate(0deg)",
+
+    "&:hover": {
+      transition: "transform 1.4s linear",
+      top: "-40px" /* -child size/2 */,
+      left: "110px",
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "150px",
-      height: "150px",
+
+    [theme.breakpoints.only("md")]: {
+      width: "300px",
+      height: "300px",
+    },
+    [theme.breakpoints.only("sm")]: {
+      width: "250px",
+      height: "250px",
     },
     [theme.breakpoints.down("xs")]: {
       borderRadius: "50%",
-      width: "180px",
-      height: "180px",
+      width: "255px",
+      height: "255px",
       marginTop: "30px",
+    },
+  },
+
+  contactCoverImg: {
+    width: "900px",
+    height: "350px",
+    [theme.breakpoints.only("sm")]: {
+      width: "300px",
+      height: "250px",
+    },
+    [theme.breakpoints.only("xs")]: {
+      width: "900px",
+      height: "350px",
     },
   },
   iconcardcover: {
     boxShadow: "0px 9px 15px rgba(0,0,0,0.4)",
     borderRadius: 100,
     padding: "10px",
-    height: "15px",
-    width: "15px",
-    [theme.breakpoints.down("md")]: {
-      padding: "5px",
-      height: "14px",
-      width: "14px",
+    width: "29px",
+    height: "29px",
+
+    "&:hover": {
+      transition: "transform 0.7s linear",
+      top: "-40px" /* -child size/2 */,
+      left: "110px",
+      transform: "rotate(360deg)",
     },
-    [theme.breakpoints.down("sm")]: {},
+
+    [theme.breakpoints.down("sm")]: {
+      padding: "5px",
+      width: "29px",
+      height: "29px",
+    },
   },
   TwitterIcon: {
-    fontSize: "16px",
+    fontSize: "29px",
     color: "#fa9a1c",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "29px",
+    },
+
+    // paddingRight:'10px'
   },
   twitterdiv: {
-    marginTop: "70px",
+    marginTop: "65px",
+
+    // marginLeft:"10px",
     [theme.breakpoints.down("md")]: {
-      marginTop: "25px",
-      [theme.breakpoints.down("xs")]: {
-        marginTop: "40px",
+      // marginTop: "25px",
+      [theme.breakpoints.down("sm")]: {
+        marginTop: "50px",
       },
     },
   },
   instagramIcon: {
-    fontSize: "16px",
+    fontSize: "29px",
     color: "#fa9a1c",
   },
   instagramdiv: {
-    marginTop: "70px",
+    marginTop: "65px",
+    // marginRight:'10px',
     [theme.breakpoints.down("md")]: {
-      marginTop: "25px",
+      // marginTop: "25px",
     },
-    [theme.breakpoints.down("xs")]: {
-      marginTop: "40px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "50px",
     },
   },
   emailIcon: {
     paddingTop: "",
     color: "#fa9a1c",
-    fontSize: "15px",
+    fontSize: "29px",
     [theme.breakpoints.down("md")]: {
-      fontSize: "12px",
+      // fontSize: "12px",
     },
   },
   TextField: {
-    "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: theme.palette.secondary.main,
+    // "& .MuiOutlinedInput-notchedOutline": {
+    //   borderColor: theme.palette.secondary.main,
+    // },
+    // "&:hover  .MuiOutlinedInput-notchedOutline": {
+    //   borderColor: theme.palette.secondary.main,
+    // },
+  },
+  cntbg: {
+    backgroundImage: `url(${cbg})`,
+    // marginLeft:"20px",
+    height: "47vh",
+    // backgroundSize: "cover",
+    backgroundPosition: "right center",
+    backgroundRepeat: "no-repeat",
+    position: "relative",
+    // width: "100vh",
+    [theme.breakpoints.only("sm")]: {
+      height: "38vh",
+      width: "100vh",
     },
-    "&:hover  .MuiOutlinedInput-notchedOutline": {
-      borderColor: theme.palette.secondary.main,
+    [theme.breakpoints.only("xs")]: {
+      backgroundPosition: " top right  ",
+      backgroundImage: "none",
+      width: "",
+      height: "59vh",
     },
   },
   emaildiv: {
-    marginTop: "70px",
+    marginTop: "50px",
     [theme.breakpoints.down("md")]: {
-      marginTop: "20px",
+      // marginTop: "20px",
     },
     [theme.breakpoints.down("xs")]: {
       marginTop: "40px",
@@ -153,98 +329,100 @@ const useStyles = makeStyles((theme) => ({
 const Brands = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
+  const matchesXS = useMediaQuery(theme.breakpoints.only("xs"));
+
   return (
     <Grid
       container
       direction={matchesXS ? "column" : "row"}
-      justify="space-between"
+      justifyContent="space-between"
       style={{ marginTop: "180px" }}
       alignItems="center"
+      data-aos="zoom-in"
+      data-aos-offset="200"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="1200"
     >
       <Grid
         item
-        container
-        direction="column"
-        xs={matchesXS ? "null" : 4}
-        alignItems="center"
+        style={{}}
+        className={classes.TextFieldContainer}
+        xs={matchesXS ? null : 4}
       >
-        <Typography
-          className={classes.mainheading1}
-          fontWeight="fontWeightBold"
-          m={5}
-        >
-          Contact Us
-        </Typography>
-        <FormControl className={classes.formControl}>
-          <TextField
-            id="outlined-multiline-static"
-            label="contact"
-            multiline
-            rows={12}
-            defaultValue="Default Value"
-            variant="outlined"
-            className={classes.TextField}
-          />
-        </FormControl>
-        <Button color="secondary" variant="contained" className={classes.btn}>
-          send
-        </Button>
-      </Grid>
-      <Grid
-        item
-        container
-        xs={matchesXS ? "null" : 4}
-        justify="center"
-        alignItems="center"
-      >
-        <Card item container className={classes.iconCard}>
-          <Grid
-            container
-            direction="column"
-            justify=""
-            alignItems=""
+        <Grid item container className={classes.contactMsgGrid}>
+          <img
+            src={matchesXS ? contacttdown : contactbg}
             style={{}}
-          >
-            <Grid container justify="center">
-              <div style={{ marginTop: "13px" }}>
-                <card className={classes.iconcardcover}>
-                  <Facebook style={{ color: "#fa9a1c", fontSize: "16px" }} />
-                </card>
-              </div>
-            </Grid>
-            <Grid container justify="space-between">
-              <div className={classes.twitterdiv}>
-                <Card className={classes.iconcardcover}>
-                  <Twitter className={classes.TwitterIcon} />
-                </Card>
-              </div>
-              <div className={classes.instagramdiv}>
-                <Card className={classes.iconcardcover}>
-                  <Instagram className={classes.instagramIcon} />
-                </Card>
-              </div>
-            </Grid>
-            <Grid container justify="center">
-              <div className={classes.emaildiv}>
-                <card className={classes.iconcardcover}>
-                  <Email className={classes.emailIcon} />
-                </card>
-              </div>
-            </Grid>
-          </Grid>
-        </Card>
+            className={classes.contactCoverImg}
+            alt="contact"
+          />
+          <div style={{ zIndex: 1 }}>
+            <h3 className={classes.contactMsg}>Want to get in touch?</h3>
+          </div>
+        </Grid>
       </Grid>
       <Grid
         item
         container
         direction={matchesXS ? "column" : "row"}
-        xs={matchesXS ? "null" : 4}
-        justify="flex-end"
-        alignItems="center"
+        xs={matchesXS ? 12 : 4}
+        justifyContent="center"
+        alignItems={matchesXS ? null : "center"}
+        // className={classes.cntbg}
       >
-        <img src={mainp} alt='contact' className={classes.img} />
+        <Grid container item className={classes.cntbg} justifyContent="center">
+          <Card className={classes.iconCard} xs={matchesXS ? 9 : ""}>
+            <Grid container direction="column" style={{}}>
+              <Grid container justifyContent="center">
+                <div style={{ marginTop: "13px" }}>
+                  <Card className={classes.iconcardcover}>
+                    <Facebook style={{ color: "#fa9a1c", fontSize: "29px" }} />
+                  </Card>
+                </div>
+              </Grid>
+              <Grid container justifyContent="space-evenly">
+                <div className={classes.twitterdiv}>
+                  <a href="https://twitter.com/Khennoxx?t=eOrLQ76Pq28JgRF3Cd4MZw&s=09">
+                    <Card className={classes.iconcardcover}>
+                      <Twitter className={classes.TwitterIcon} />
+                    </Card>
+                  </a>
+                </div>
+                <div className={classes.twitterdiv}>
+                  <a href="https://www.linkedin.com/in/kennedy-daniel-995855199">
+                    <Card className={classes.iconcardcover}>
+                      <LinkedIn className={classes.TwitterIcon} />
+                    </Card>
+                  </a>
+                </div>
+                <div className={classes.instagramdiv}>
+                  <a href="https://github.com/kennedy-dan">
+                    <Card className={classes.iconcardcover}>
+                      <GitHub className={classes.instagramIcon} />
+                    </Card>
+                  </a>
+                </div>
+              </Grid>
+              <Grid container justifyContent="center">
+                <div className={classes.emaildiv}>
+                  <a
+                    href="mailto:kennooox@gmail.com"
+                    style={{ textDecoration: "none", alignSelf: "center" }}
+                  >
+                    <Card className={classes.iconcardcover}>
+                      <Email className={classes.emailIcon} />
+                    </Card>
+                  </a>
+                </div>
+              </Grid>
+            </Grid>
+          </Card>
+        </Grid>
       </Grid>
     </Grid>
   );

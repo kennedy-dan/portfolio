@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Grid,
   Typography,
@@ -8,7 +8,12 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
-import {  makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import santa from "../Assets/santa.svg";
+import sign from "../Assets/sigg.svg";
+import "aos/dist/aos.css";
+
+import Aos from "aos";
 
 /**
  * @author
@@ -16,18 +21,16 @@ import {  makeStyles } from "@material-ui/core/styles";
  **/
 
 const useStyles = makeStyles((theme) => ({
-  gridCont:{
+  gridCont: {
     marginTop: "180px",
     [theme.breakpoints.down("xs")]: {
-    marginTop: "100px",
-      
-    } 
-    
+      marginTop: "100px",
+    },
   },
   mainheading2: {
     fontSize: "30px",
     fontWeight: "bolder",
-    textAlign: "center",
+    // textAlign: "center",
     fontFamily: theme.font.primary.main,
 
     color: theme.palette.secondary.main,
@@ -41,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
   mainheading1: {
     fontSize: "30px",
     fontWeight: "bolder",
-    textAlign: "center",
-    color: theme.palette.primary.main,
+    // textAlign: "center",
+    color: theme.palette.common.blue,
     fontFamily: theme.font.primary.main,
 
     [theme.breakpoints.down("sm")]: {
@@ -53,9 +56,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainheading3: {
-    fontSize: "12px",
-    textAlign: "center",
+    fontSize: "14px",
+    // textAlign: "center",
     fontFamily: theme.font.primary.main,
+    color: theme.palette.common.blue,
+
 
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
@@ -67,27 +72,29 @@ const useStyles = makeStyles((theme) => ({
   cardType: {
     // width: "65%",
     textAlign: "center",
-    fontSize: "12px",
+    fontSize: "11px",
     paddingTop: "15px",
     fontFamily: theme.font.primary.main,
 
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
+      paddingTop: "11px",
     },
   },
   grid: {
     // paddingLeft: "30px",
     [theme.breakpoints.down("xs")]: {
-     marginTop:'20px',
+      marginTop: "20px",
     },
   },
   root: {
-    maxWidth: "190px",
-    height: "190px",
-    boxShadow: "0px 9px 15px rgba(0,0,0,0.4)",
+    maxWidth: "220px",
+    height: "250px",
+    boxShadow: "0px 7px 25px #fa9a1c",
+    border: "none",
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "160px",
-      height: "160px",
+      maxWidth: "200px",
+      height: "230px",
     },
     // borderRadius: 90
   },
@@ -98,24 +105,24 @@ const useStyles = makeStyles((theme) => ({
     width: 135,
     height: 25,
     marginTop: "20px",
-    margin:'0 auto',
+    // margin: "0 auto",
     [theme.breakpoints.down("sm")]: {
       fontSize: "11px",
       width: 110,
       marginTop: "20px",
     },
     [theme.breakpoints.down("xs")]: {
-     fontSize:'7px',
-     width:80,
-     marginTop:'10px',
-     margin:"0 auto"
+      fontSize: "7px",
+      width: 80,
+      marginTop: "10px",
+      margin: "0 auto",
     },
 
     // width: "20%",
   },
   cardbtn: {
     paddingTop: "19px",
-    fontSize: "12px",
+    fontSize: "11px",
     color: theme.palette.secondary.main,
     [theme.breakpoints.down("sm")]: {
       fontSize: "11px",
@@ -123,34 +130,58 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: "12px",
     },
   },
-  design:{
+  img: {
+    width: "97px",
+    height: "45px",
+    paddingBottom: "15px",
+  },
+  design: {
     color: theme.palette.primary.main,
     fontFamily: theme.font.primary.main,
 
-    fontWeight: "bolder"
-  }
+    fontWeight: "bolder",
+  },
+  tryim: {
+    width: "97px",
+    height: "60px",
+    paddingBottom: "5px",
+  },
 }));
 
 const Services = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
+
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid
       container
       direction={matchesXS ? "column" : "row"}
-      justify="space-evenly"
-      style={{ }}
+      justifyContent="space-evenly"
+      style={{}}
       alignItems="center"
       className={classes.gridCont}
     >
-      <Grid item>
+      <Grid
+        item
+        data-aos="flip-left"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="1200"
+      >
         <Typography
           className={classes.mainheading1}
           fontWeight="fontWeightBold"
           m={1}
+          data-aos="flip-right"
+          data-aos-offset="200"
+          // data-aos-easing="ease-in-sine"
+          data-aos-duration="1200"
         >
           My Awesome
         </Typography>
@@ -163,32 +194,44 @@ const Services = (props) => {
           Services
         </Typography>
         <Typography className={classes.mainheading3}>
-          Lorem ipsum dolor sit amet, consectetur
+          From fullstack web development to Performance.
         </Typography>
-        <Grid container direction={matchesXS? "column": "row"}>
-        <Button color="secondary" variant="contained" className={classes.btn}>
-          Download CV
-        </Button>
+        <Grid container direction={matchesXS ? "column" : "row"}>
+          <Button color="secondary" variant="contained" className={classes.btn}>
+            Download CV
+          </Button>
         </Grid>
       </Grid>
 
       <Grid item className={classes.grid}>
-        <Card className={classes.root}>
+        <Card
+          className={classes.root}
+          data-aos="flip-right"
+          data-aos-offset="200"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="1200"
+        >
           <CardContent>
-            <Grid container direction="column" alignItems="center">
+            <Grid
+              container
+              direction="column"
+              alignItems="center"
+              // style={{ padding: "10px" }}
+            >
+              <img src={santa} alt="developer" className={classes.img} />
+
               <Typography
                 fontWeight="fontWeightBold"
-                style={{  }}
-                className={classes.design}
+                style={{ fontWeight: "bolder" }}
               >
                 Design
               </Typography>
-              <Typography className={classes.cardType}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
-                maiores
-              </Typography>
+              <p className={classes.cardType}>
+                I strive for two things in design: simplicity and clarity. Great
+                design is born of those two things
+              </p>
               <>
-                <Button className={classes.cardbtn}>Learn More</Button>
+                <img src={sign} alt='signature' className={classes.tryim} />
               </>
             </Grid>
           </CardContent>

@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Grid,
   Typography,
   Card,
-  CardMedia,
-  Button,
+
   useTheme,
   useMediaQuery,
+  IconButton,
 } from "@material-ui/core";
-import {  makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import dot from "../Assets/dots.svg";
+
+
+import "aos/dist/aos.css";
+
+import Aos from "aos";
+
 
 import data from "../Component/data";
+import {
+  ArrowBack,
+  ArrowForward,
+} from "@material-ui/icons";
 /**
  * @author
  * @function Strength
@@ -19,20 +30,39 @@ import data from "../Component/data";
 const useStyles = makeStyles((theme) => ({
   cardsSlider: {
     position: "relative",
-    maxWidth: "226px",
+    maxWidth: "826px",
+    overflowX: "hidden",
+    scroll: "hidden",
     margin: "0 auto",
-    marginTop: "10px",
-    [theme.breakpoints.down("md")]: {
+    // marginTop: "10px",
+    zIndex: 1,
+    [theme.breakpoints.only("md")]: {
       marginTop: "10px",
     },
-    [theme.breakpoints.down("xs")]: {
-      marginTop: "18px",
+    [theme.breakpoints.only("xs")]: {
+      marginTop: "38px",
+      zIndex: 0,
+      overflowX: "visible",
+      // width:'1000px',
+      maxWidth: "10%",
     },
   },
   cardsSliderWrapper: {
     display: "flex",
     position: "absolute",
     transition: "transform 300ms cubic-bezier(0.455, 0.03,  0.515, 0.955)",
+    [theme.breakpoints.only("xs")]: {
+      marginTop: "38px",
+      zIndex: 0,
+
+      // overflow:'visible'
+    },
+
+    // backgroundImage: `url(${dot})`,
+    // // height: "100vh",
+    // // backgroundSize: "cover",
+    // backgroundPosition: "center",
+    // backgroundRepeat: "repeat",
   },
   mainheading2: {
     fontSize: "30px",
@@ -51,10 +81,25 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     fontWeight: 400,
   },
+  col: {
+    backgroundImage: `url(${dot})`,
+    height: "28vh",
+    // width:'90px',
+    // backgroundSize: "cover",
+    backgroundPosition: "center",
+    // yIndex:-1
+    // backgroundImage: `url(${dot})`,
+    // height: "100vh",
+    // backgroundSize: "cover",
+    // backgroundPosition: "center",
+    // // backgroundRepeat: "repeat",
+    // width: "100%",
+  },
   card: {
     flex: 1,
-    minWidth: "200px",
-    opacity: 0.01,
+    width: "130px",
+    // heigth:'130px',
+    opacity: 1,
     transform: "scale(0.7)",
     // overflowX:'hidden',
 
@@ -62,42 +107,51 @@ const useStyles = makeStyles((theme) => ({
       "opacity 300ms linear,transform 300ms cubic-bezier(0.455, 0.03,  0.515, 0.955) ",
     boxShadow: "0px 9px 15px rgba(0,0,0,0.4)",
     [theme.breakpoints.down("xs")]: {
-      minWidth: "150px",
-      marginLeft: "10px",
+      minWidth: "10px",
+      marginLeft: "1px",
     },
   },
   activeCard: {
     opacity: 1,
     flex: 1,
-    width: "200px",
+    width: "130px",
+    // heigth:'130px',
     transform: "scale(1)",
-    boxShadow: "0px 9px 15px rgba(0,0,0,0.4)",
+    boxShadow: "0px 9px 15px #fa9a1c",
     [theme.breakpoints.down("xs")]: {
-      minWidth: "150px",
-      marginLeft: "40px",
+      minWidth: "10px",
+      marginLeft: "1px",
     },
   },
   btnnxt: {
-    borderRadius: "0% 100% 100% 2% / 100% 100% 100% 100% ",
+    // borderRadius: "0% 100% 100% 2% / 100% 100% 100% 100% ",
     background: theme.palette.secondary.main,
     fontSize: "10px",
     marginRight: "7px",
-    boxShadow: "0px 9px 15px #fa9a1c",
+    height: "30px",
+    boxShadow: "0px 9px 15px #0B72B9",
     fontFamily: theme.font.primary.main,
-
-    color: theme.palette.common.white,
+    zIndex: 2,
+    // color: theme.palette.common.white,
     "&:hover": {
       background: theme.palette.secondary.main,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "6px",
+      fontSize: "2px",
+      height: 2,
+      width: 40,
     },
+    // [theme.breakpoints.only("xs")]: {
+    //   zIndex: 1,
+    // },
   },
   btnprev: {
-    borderRadius: "100% 0% 100% 97% / 100% 0% 0% 100% ",
+    // borderRadius: "100% 0% 100% 97% / 100% 0% 0% 100% ",
     background: theme.palette.secondary.main,
     fontSize: "10px",
     fontFamily: theme.font.primary.main,
+    zIndex: 2,
+    height: "30px",
 
     boxShadow: "0px 9px 15px #fa9a1c",
 
@@ -106,7 +160,9 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.secondary.main,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "6px",
+      fontSize: "2px",
+      height: 2,
+      width: 40,
       // width:'10px'
     },
   },
@@ -115,8 +171,12 @@ const useStyles = makeStyles((theme) => ({
 const Strength = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  const [properties, setProperties] = useState(data.properties);
+  const [properties] = useState(data.properties);
   const [property, setProperty] = useState(data.properties[0]);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -129,65 +189,116 @@ const Strength = (props) => {
     setProperty(data.properties[newIndex]);
   };
 
+  const styleXS = {
+    transform: `translate(-${property.index * (120 / properties.length)}%)`,
+  };
+
+  const style = {
+    transform: `translate(-${property.index * (100 / properties.length)}%)`,
+  };
+
   return (
     <div style={{ marginTop: "180px" }}>
-      <Grid container justify="center" xs={matchesXS ? 12 : 4}>
-        <Typography
-          className={classes.mainheading2}
-          fontWeight="fontWeightBold"
-          m={1}
+      <Grid
+        container
+        
+        // alignItems="center"
+        direction={matchesXS ? "column" : "row"}
+        className={classes.col}
+      >
+        <Grid
+          container
+          direction="column"
+          item
+          xs={matchesXS ? 12 : 4}
+          style={{ marginTop: "30px" }}
         >
-          {" "}
-          Tech Stack I use
-        </Typography>
-      </Grid>
-      <Grid container justify="center" xs={matchesXS ? 12 : 4}>
-        <Button
-          onClick={nextProperty}
-          disabled={property.index === data.properties.length - 1}
-          className={classes.btnnxt}
+          <Typography
+            className={classes.mainheading2}
+            fontWeight="fontWeightBold"
+            m={1}
+          >
+            {" "}
+            Tech Stack I use
+          </Typography>
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            item
+            xs={matchesXS ? 12 : 6}
+          >
+            <Grid item>
+              <IconButton
+                onClick={nextProperty}
+                disabled={property.index === data.properties.length - 1}
+                className={classes.btnnxt}
+              >
+                <ArrowForward />
+                {/* <img src = {Next} /> */}
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton
+                onClick={prevProperty}
+                disabled={property.index === 0}
+                className={classes.btnprev}
+                // color= 'secondary'
+              >
+                <ArrowBack />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid
+          className={`${classes.cardsSlider} `}
+          item
+          xs={matchesXS ? null : 8}
+          style={{ marginTop: "40px" }}
+          container
+          data-aos="zoom-in"
+          data-aos-offset="200"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="600"
         >
-          Next
-        </Button>
-        <Button
-          onClick={prevProperty}
-          disabled={property.index === 0}
-          className={classes.btnprev}
-          // color= 'secondary'
-        >
-          Prev
-        </Button>
-      </Grid>
-      <div className={classes.col}>
-        <div className={`${classes.cardsSlider} `}>
           <div
             className={classes.cardsSliderWrapper}
-            style={{
-              transform: `translate(-${
-                property.index * (100 / properties.length)
-              }%)`,
-            }}
+            style={matchesXS ? styleXS : style}
+         
           >
             {properties.map((props, index) => (
               <Card
+              key={index}
                 className={
                   props.index === property.index
                     ? classes.activeCard
                     : classes.card
                 }
+               
               >
-                <CardMedia>
-                  <img
-                    src={props.picture}
-                    style={{ width: "120px", marginLeft: "30px" }}
-                    alt='stack'
-                  />
-                </CardMedia>
+                <img
+                  src={props.picture}
+                  style={{
+                    maxWidth: "50px",
+                    // maxHeight: "40px",
+
+                    justifyContent: "center",
+                    justifySelf: "center",
+                    paddingLeft: "40px",
+                    paddingTop: "15px",
+                    paddingBottom: "1px",
+
+                    // paddingLeft: "10px",
+                    // paddingRight: "10px",
+                    // fontSize:'2px'
+                  }}
+                  alt="stack"
+                />
               </Card>
             ))}
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };

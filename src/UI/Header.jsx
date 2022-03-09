@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import {  makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 
 import ClearIcon from "@material-ui/icons/Clear";
+
+import Scrollspy from "react-scrollspy";
 
 import {
   Tabs,
@@ -38,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     // display: "none",
     fontFamily: theme.font.primary.main,
+    fontWeight: 500,
 
     [theme.breakpoints.up("sm")]: {
       display: "block",
@@ -45,14 +49,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       // marginTop: "-5em",
       display: "block",
-      marginLeft: "5px",
     },
     [theme.breakpoints.down("md")]: {
       // marginTop: "-5em",
       // color: 'red'
     },
     color: theme.palette.primary.main,
-    marginLeft: "3em",
+    // marginLeft: "3em",
     marginTop: "8px",
     fontSize: "18px",
   },
@@ -60,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
     // display: "none",
     marginTop: "8px",
     fontFamily: theme.font.primary.main,
+    fontWeight: 500,
 
     [theme.breakpoints.down("xs")]: {
       // marginTop: "5em",
@@ -67,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
       // color: 'yellow'
     },
     color: "black",
-    marginLeft: "1em",
+    // marginLeft: "1em",
     fontSize: "18px",
   },
   appBar: {
@@ -114,13 +118,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 9000,
     color: theme.palette.primary.main,
     fontFamily: theme.font.primary.main,
-    
 
     // color: "white",
     fontSize: "1em",
   },
   tabScrolled: {
-    marginLeft: "25px",
+    // marginLeft: "25px",
     minWidth: 5,
     textTransform: "none",
     fontWeight: 9000,
@@ -130,10 +133,9 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     ...theme.typography.btn,
-    
+
     // width: 135,
     height: 25,
-    
 
     "&:hover": {
       boxShadow: "none",
@@ -141,10 +143,9 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "none",
       color: theme.palette.primary.main,
     },
-    "&:active":{
-      outline:"none",
-
-    }
+    "&:active": {
+      outline: "none",
+    },
   },
   scrollBtn: {
     fontSize: "13px",
@@ -201,15 +202,9 @@ export default function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const matchesMD = useMediaQuery(theme.breakpoints.only("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const [openDrawer, setOpendrawer] = useState(false);
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
- 
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -219,26 +214,28 @@ export default function Header() {
   const tabs = (
     <React.Fragment>
       <Grid item>
-        <Grid container justify="">
+        <Grid container>
           <Tabs centered className={classes.tabContainer}>
-            <Tab
-              className={`${classes.tab} ${
-                trigger === false ? "" : classes.tabScrolled
-              }`}
-              label="Home"
-            />
-            <Tab
-              className={`${classes.tab} ${
-                trigger === false ? "" : classes.tabScrolled
-              }`}
-              label="About Us"
-            />
-            <Tab
-              className={`${classes.tab} ${
-                trigger === false ? "" : classes.tabScrolled
-              }`}
-              label="Services"
-            />
+            <Scrollspy items={ ['section-1', 'section-2', 'section-3'] }>
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Home"
+              />
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Services"
+              />
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Works"
+              />
+            </Scrollspy>
           </Tabs>
         </Grid>
       </Grid>
@@ -251,7 +248,7 @@ export default function Header() {
             variant="contained"
             color="secondary"
           >
-            Contact Us
+            Contact
           </Button>
         </Grid>
       </Grid>
@@ -271,14 +268,19 @@ export default function Header() {
       >
         <div className={classes.growDrawer} />
         <Grid container direction="column">
-          <Grid container justify="flex-end">
+          <Grid container justifyContent="flex-end">
             <ClearIcon
               className={classes.cancelIcon}
               onClick={() => setOpendrawer(false)}
             />
           </Grid>
-          <Grid container justify="center" align='center'  style={{marginTop: '80px'}}>
-            <List disablePadding justify="center" alignItems='center'>
+          <Grid
+            container
+            justifyContent="center"
+            align="center"
+            style={{ marginTop: "80px" }}
+          >
+            <List disablePadding justifyContent="center" alignItems="center">
               <ListItem
                 button
                 onClick={() => setOpendrawer(false)}
@@ -293,16 +295,7 @@ export default function Header() {
                   Services
                 </ListItemText>
               </ListItem>
-              <ListItem button onClick={() => setOpendrawer(false)}>
-                <ListItemText disableTypography className={classes.drawerList}>
-                  Blog
-                </ListItemText>
-              </ListItem>
-              <ListItem button onClick={() => setOpendrawer(false)}>
-                <ListItemText disableTypography className={classes.drawerList}>
-                Event
-                </ListItemText>
-              </ListItem>
+
               <ListItem button onClick={() => setOpendrawer(false)}>
                 <ListItemText disableTypography className={classes.drawerList}>
                   Contacts
@@ -343,6 +336,18 @@ export default function Header() {
     </React.Fragment>
   );
 
+  const styleLG = {
+    maxWidth: "80%",
+  };
+
+  const styleMD = {
+    maxWidth: "85%",
+  };
+
+  const styleSM = {
+    maxWidth: "90%",
+  };
+
   return (
     <div className={classes.grow}>
       <AppBar
@@ -352,25 +357,32 @@ export default function Header() {
           trigger === false ? "" : classes.appBarScrolled
         }`}
       >
-        <Toolbar disableGutters>
-          <Grid container justify="space-between">
-            <Grid item>
-              <Typography
-                className={`${classes.title} ${
-                  trigger === false ? "" : classes.titleScroll
-                }`}
-                variant="h7"
-                noWrap
+        <Container style={matchesMD ? styleMD : matchesSM ? styleSM : styleLG}>
+          <Toolbar disableGutters>
+            <Grid container justifyContent="space-between">
+              <Grid item xs container justifyContent="space-between">
+                <Grid item>
+                  <Typography
+                    className={`${classes.title} ${
+                      trigger === false ? "" : classes.titleScroll
+                    }`}
+                    noWrap
+                  >
+                    Ken
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid
+                container
+                item
+                xs
+                justifyContent={matchesSM ? "flex-end" : "space-evenly"}
               >
-                Mynebor
-              </Typography>
+                {matchesSM ? drawer : tabs}
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container justify='space-evenly'>
-          {matchesSM ? drawer : tabs}
-
-          </Grid>
-        </Toolbar>
+          </Toolbar>
+        </Container>
       </AppBar>
     </div>
   );

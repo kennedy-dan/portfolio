@@ -1,26 +1,27 @@
-import mongo from "../Assets/MongoDB-Logo.svg";
-import node from "../Assets/Node.js_logo.svg"
-import redux from "../Assets/Redux_Logo.png"
-import react from "../Assets/react.svg"
-import reacto from "../Assets/react.svg"
-import reacti from "../Assets/react.svg"
-import reactj from "../Assets/react.svg"
+import mongo from "../Assets/mg.svg";
+import node from "../Assets/nodee.svg"
+import redux from "../Assets/reduxx.svg"
+import react from "../Assets/reactt.svg"
+import reacti from "../Assets/aii.svg"
+import reactj from "../Assets/materialUi.svg"
 
-import html from  "../Assets/html.jpg"
+import next from '../Assets/nxtjs.svg'
 
 
 const data = {
   properties: [
-     
-    { 
-        "picture": mongo ,
-        "index": 0
-    },
     { 
         "picture": node,
-        "index": 1
+        "index": 0
 
     },
+    { 
+        "picture": mongo ,
+        "index": 1
+    },
+   
+    
+
     { 
         "picture": redux ,
         "index": 2
@@ -31,22 +32,20 @@ const data = {
         "index": 3
 
     },
-    {
-        "picture": html,
+    { 
+        "picture": next,
         "index": 4
-    },
-    {
-        "picture": reacto,
-        "index": 5
+
     },
     {
         "picture": reacti,
-        "index": 6
+        "index": 5
     },
     {
         "picture": reactj,
-        "index": 7
+        "index": 6
     },
+
 
     ],
 };
