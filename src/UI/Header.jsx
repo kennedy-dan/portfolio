@@ -8,7 +8,6 @@ import Container from "@material-ui/core/Container";
 
 import ClearIcon from "@material-ui/icons/Clear";
 
-import Scrollspy from "react-scrollspy";
 
 import {
   Tabs,
@@ -206,6 +205,12 @@ export default function Header() {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const [openDrawer, setOpendrawer] = useState(false);
 
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 150,
@@ -215,8 +220,7 @@ export default function Header() {
     <React.Fragment>
       <Grid item>
         <Grid container>
-          <Tabs centered className={classes.tabContainer}>
-            <Scrollspy items={ ['section-1', 'section-2', 'section-3'] }>
+          <Tabs centered className={classes.tabContainer} value={value} onChange={handleChange}>
               <Tab
                 className={`${classes.tab} ${
                   trigger === false ? "" : classes.tabScrolled
@@ -235,7 +239,6 @@ export default function Header() {
                 }`}
                 label="Works"
               />
-            </Scrollspy>
           </Tabs>
         </Grid>
       </Grid>
