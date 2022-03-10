@@ -40,15 +40,16 @@ export default createTheme({
       fontWeight: 300,
     },
     btn: {
-      paddingTop: 14,
-      paddingBottom: 14,
-      fontSize: "12px",
-      position: "relative",
-      boxShadow: "0px 9px 15px #fa9a1c",
+      paddingTop:5,
+      paddingBottom:5,
+      fontSize: "13px",
+      // position: "relative",
+      boxShadow: "2px 3px 8px #fa9a1c",
       textTransform: "none",
       borderRadius: 90,
     //   marginTop: "30px",
-      color: "white",
+      background: "#fa9a1c",
+      // width:'28%'
     },
   },
   overrides:{

@@ -8,11 +8,9 @@ import Container from "@material-ui/core/Container";
 
 import ClearIcon from "@material-ui/icons/Clear";
 
-
 import {
   Tabs,
   Tab,
-  Button,
   Grid,
   List,
   ListItem,
@@ -22,7 +20,6 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -55,12 +52,12 @@ const useStyles = makeStyles((theme) => ({
     },
     color: theme.palette.primary.main,
     // marginLeft: "3em",
-    marginTop: "8px",
+    marginTop: "19px",
     fontSize: "18px",
   },
   titleScroll: {
     // display: "none",
-    marginTop: "8px",
+    marginTop: "18px",
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
 
@@ -132,9 +129,10 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     ...theme.typography.btn,
-
-    // width: 135,
-    height: 25,
+    margin: "10px",
+    outline: "none",
+    // width: '10px',
+    // height: 25,
 
     "&:hover": {
       boxShadow: "none",
@@ -156,7 +154,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btnCont: {
     marginTop: "6px",
-    marginRight: "3em",
+    marginRight: "1em",
   },
   drawerIcon: {
     fontSize: "25px",
@@ -220,39 +218,39 @@ export default function Header() {
     <React.Fragment>
       <Grid item>
         <Grid container>
-          <Tabs centered className={classes.tabContainer} value={value} onChange={handleChange}>
-              <Tab
-                className={`${classes.tab} ${
-                  trigger === false ? "" : classes.tabScrolled
-                }`}
-                label="Home"
-              />
-              <Tab
-                className={`${classes.tab} ${
-                  trigger === false ? "" : classes.tabScrolled
-                }`}
-                label="Services"
-              />
-              <Tab
-                className={`${classes.tab} ${
-                  trigger === false ? "" : classes.tabScrolled
-                }`}
-                label="Works"
-              />
-          </Tabs>
-        </Grid>
-      </Grid>
-      <Grid item className={classes.btnCont}>
-        <Grid container>
-          <Button
-            component={Link}
-            to="/signin"
-            className={classes.btn}
-            variant="contained"
-            color="secondary"
+          <Tabs
+            centered
+            className={classes.tabContainer}
+            value={value}
+            onChange={handleChange}
           >
-            Contact
-          </Button>
+            <Tab
+              className={`${classes.tab} ${
+                trigger === false ? "" : classes.tabScrolled
+              }`}
+              label="Home"
+            />
+            <Tab
+              className={`${classes.tab} ${
+                trigger === false ? "" : classes.tabScrolled
+              }`}
+              label="Services"
+            />
+            <Tab
+              className={`${classes.tab} ${
+                trigger === false ? "" : classes.tabScrolled
+              }`}
+              label="Works"
+            />
+            <Tab
+              className={classes.btn}
+              variant="contained"
+              label="Contact"
+
+            />
+            
+            
+          </Tabs>
         </Grid>
       </Grid>
     </React.Fragment>
@@ -304,7 +302,7 @@ export default function Header() {
                   Contacts
                 </ListItemText>
               </ListItem>
-       
+
               {/* <ListItem
                 button
                 onClick={() => setOpendrawer(false)}

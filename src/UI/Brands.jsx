@@ -108,6 +108,19 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center",
     },
   },
+
+  cardMsFrid:{
+    position: "relative",
+    [theme.breakpoints.only("sm")]: {
+      width: "100%",
+      textAlign: "center",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      textAlign: "center",
+      marginTop:'30px'
+    },
+  },
   contactMsg: {
     fontSize: "34px",
     zIndex: 1,
@@ -120,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "30px",
     },
     [theme.breakpoints.only("sm")]: {
-      fontSize: "30px",
+      fontSize: "24px",
     },
     [theme.breakpoints.only("xs")]: {
       fontSize: "25px",
@@ -177,13 +190,14 @@ const useStyles = makeStyles((theme) => ({
     width: "300px",
     height: "300px",
     boxShadow: " 0px 9px 15px #457cbf",
+    zIndex: 1,
+    position: "absolute",
+    top: "50%",
+    left: "32%",
+    color: theme.palette.common.blue,
+    transform: "translate(-50%, -50%)",
     // transform: "rotate(0deg)",
 
-    "&:hover": {
-      transition: "transform 1.4s linear",
-      top: "-40px" /* -child size/2 */,
-      left: "110px",
-    },
 
     [theme.breakpoints.only("md")]: {
       width: "300px",
@@ -198,10 +212,28 @@ const useStyles = makeStyles((theme) => ({
       width: "255px",
       height: "255px",
       marginTop: "30px",
+      top: "38%",
+      left: "40%",
     },
   },
 
   contactCoverImg: {
+    width: "900px",
+    height: "320px",
+    [theme.breakpoints.only("md")]: {
+      width: "450px",
+      height: "350px",
+    },
+    [theme.breakpoints.only("sm")]: {
+      width: "320px",
+      height: "250px",
+    },
+    [theme.breakpoints.only("xs")]: {
+      width: "900px",
+      height: "350px",
+    },
+  },
+  iconCardCoverImg: {
     width: "900px",
     height: "350px",
     [theme.breakpoints.only("md")]: {
@@ -209,12 +241,12 @@ const useStyles = makeStyles((theme) => ({
       height: "350px",
     },
     [theme.breakpoints.only("sm")]: {
-      width: "300px",
+      width: "320px",
       height: "250px",
     },
     [theme.breakpoints.only("xs")]: {
-      width: "900px",
-      height: "350px",
+      width: "830px",
+      height: "280px",
     },
   },
   iconcardcover: {
@@ -298,7 +330,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     position: "relative",
     [theme.breakpoints.only("md")]: {
-      height: "23vh",
+      height: "33vh",
       width: "100vh",
     },
     [theme.breakpoints.only("sm")]: {
@@ -384,8 +416,17 @@ const Brands = (props) => {
         alignItems={matchesXS ? null : "center"}
         // className={classes.cntbg}
       >
-        <Grid container item className={classes.cntbg} justifyContent="center">
-          <Card className={classes.iconCard} xs={matchesXS ? 9 : ""}>
+       
+        {/* <Grid container item className={classes.cntbg} justifyContent="center"> */}
+        <Grid item container className={classes.cardMsFrid}>
+       
+        <img
+            src={cbg}
+            style={{}}
+            className={classes.iconCardCoverImg}
+            alt="contact"
+          />
+          <Card className={classes.iconCard} xs={matchesXS ? 12 : ""}>
             <Grid container direction="column" style={{}}>
               <Grid container justifyContent="center">
                 <div style={{ marginTop: "13px" }}>
