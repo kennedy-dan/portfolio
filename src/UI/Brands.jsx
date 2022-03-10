@@ -116,8 +116,8 @@ const useStyles = makeStyles((theme) => ({
     left: "50%",
     color: theme.palette.common.blue,
     transform: "translate(-50%, -50%)",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "50px",
+    [theme.breakpoints.only("md")]: {
+      fontSize: "30px",
     },
     [theme.breakpoints.only("sm")]: {
       fontSize: "30px",
@@ -204,6 +204,10 @@ const useStyles = makeStyles((theme) => ({
   contactCoverImg: {
     width: "900px",
     height: "350px",
+    [theme.breakpoints.only("md")]: {
+      width: "400px",
+      height: "350px",
+    },
     [theme.breakpoints.only("sm")]: {
       width: "300px",
       height: "250px",
@@ -226,12 +230,14 @@ const useStyles = makeStyles((theme) => ({
       left: "110px",
       transform: "rotate(360deg)",
     },
+    
 
     [theme.breakpoints.down("sm")]: {
       padding: "5px",
       width: "29px",
       height: "29px",
     },
+
   },
   TwitterIcon: {
     fontSize: "29px",
@@ -291,9 +297,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "right center",
     backgroundRepeat: "no-repeat",
     position: "relative",
-    // width: "100vh",
+    [theme.breakpoints.only("md")]: {
+      height: "23vh",
+      width: "100vh",
+    },
     [theme.breakpoints.only("sm")]: {
-      height: "38vh",
+      height: "23vh",
       width: "100vh",
     },
     [theme.breakpoints.only("xs")]: {

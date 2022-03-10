@@ -304,18 +304,7 @@ export default function Header() {
                   Contacts
                 </ListItemText>
               </ListItem>
-              <ListItem
-                button
-                onClick={() => setOpendrawer(false)}
-                component={Link}
-                to="/signin"
-                className={classes.drawerList}
-                style={{}}
-              >
-                <ListItemText disableTypography className={classes.drawerList}>
-                  Login
-                </ListItemText>
-              </ListItem>
+       
               {/* <ListItem
                 button
                 onClick={() => setOpendrawer(false)}
