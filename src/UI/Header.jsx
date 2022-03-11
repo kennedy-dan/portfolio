@@ -41,12 +41,15 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.only("sm")]: {
       display: "block",
+      marginTop: "5px",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.only("xs")]: {
       // marginTop: "-5em",
       display: "block",
+    marginTop: "5px",
+
     },
     [theme.breakpoints.down("md")]: {
       // marginTop: "-5em",
@@ -64,10 +67,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.only("xs")]: {
       // marginTop: "5em",
       marginLeft: "1px",
-      // color: 'yellow'
+      marginTop: "5px",
+    },
+    [theme.breakpoints.only("sm")]: {
+      display: "block",
+      marginTop: "5px",
     },
     color: theme.palette.secondary.main,
     // marginLeft: "1em",
