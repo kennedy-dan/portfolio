@@ -199,7 +199,7 @@ const Services = (props) => {
           From fullstack web development to Performance.
         </Typography>
         <Grid container direction={matchesXS ? "column" : "row"}>
-          <Link target="_blank" to="/cv/kennedy_daniel_cv.pdf" download style={{textDecoration:'none'}}>
+          <Link target="_blank" to="/cv/kennedy_daniel_cv.pdf" download style={{textDecoration:'none', alignSelf:'center'}}>
             <Button
               color="secondary"
               variant="contained"
