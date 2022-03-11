@@ -181,11 +181,12 @@ const Home = (props) => {
           direction={matchesXS ? "column" : "row"}
           justifyContent={matchesMD ? "center" : "space-evenly"}
           className={classes.firstRow}
-          alignItems={matchesSM  ? "center" : matchesXS ? 'center' : null}
+          alignItems={matchesSM ? "center" : matchesXS ? "center" : null}
           data-aos="zoom-in"
           data-aos-offset="200"
           data-aos-easing="ease-in-sine"
           data-aos-duration="900"
+          id="section-1"
         >
           <Grid
             item
@@ -193,7 +194,6 @@ const Home = (props) => {
             // style={{ width: "40%" }}
             container
             xs
-            
           >
             <Typography
               className={classes.mainHeading1}
@@ -229,13 +229,7 @@ const Home = (props) => {
               </Button>
             </a>
           </Grid>
-          <Grid
-            item
-            justifyContent="center"
-            style={{ width: "50%" }}
-            
-            container
-          >
+          <Grid item justifyContent="center" style={{ width: "50%" }} container>
             <img src={mainp} alt="descriptive" className={classes.img} />
           </Grid>
         </Grid>

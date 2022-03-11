@@ -388,6 +388,7 @@ const Brands = (props) => {
       data-aos-offset="200"
       data-aos-easing="ease-in-sine"
       data-aos-duration="1200"
+      id="section-4"
     >
       <Grid
         item

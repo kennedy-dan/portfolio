@@ -166,6 +166,8 @@ const Services = (props) => {
       style={{}}
       alignItems="center"
       className={classes.gridCont}
+      id="section-2"
+      
     >
       <Grid
         item

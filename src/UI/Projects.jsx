@@ -41,7 +41,10 @@ const Projects = () => {
   const classes = useStyles();
 
   return (
-    <Grid container direction="column">
+    <Grid container direction="column"
+    id="section-3"
+    
+    >
       <Grid item container justifyContent="center">
         <p className={classes.myWorks}>My Works</p>
       </Grid>

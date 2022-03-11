@@ -21,6 +21,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
 
+import Scrollspy from "react-scrollspy";
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     // flexGrow: 1,
@@ -50,14 +52,15 @@ const useStyles = makeStyles((theme) => ({
       // marginTop: "-5em",
       // color: 'red'
     },
-    color: theme.palette.primary.main,
+    // color: theme.palette.common.blue,
+    color: theme.palette.secondary.main,
+
     // marginLeft: "3em",
-    marginTop: "19px",
-    fontSize: "18px",
+    marginTop: "30px",
+    fontSize: "25px",
   },
   titleScroll: {
     // display: "none",
-    marginTop: "18px",
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
 
@@ -66,9 +69,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "1px",
       // color: 'yellow'
     },
-    color: "black",
+    color: theme.palette.secondary.main,
     // marginLeft: "1em",
-    fontSize: "18px",
+    marginTop: "30px",
+    fontSize: "25px",
   },
   appBar: {
     backgroundColor: "transparent",
@@ -218,39 +222,50 @@ export default function Header() {
     <React.Fragment>
       <Grid item>
         <Grid container>
+        <Scrollspy
+              items={["section-1", "section-2", "section-3", "section-4"]}
+              // currentClassName="is-current"
+            >
           <Tabs
             centered
             className={classes.tabContainer}
             value={value}
             onChange={handleChange}
           >
-            <Tab
-              className={`${classes.tab} ${
-                trigger === false ? "" : classes.tabScrolled
-              }`}
-              label="Home"
-            />
-            <Tab
-              className={`${classes.tab} ${
-                trigger === false ? "" : classes.tabScrolled
-              }`}
-              label="Services"
-            />
-            <Tab
-              className={`${classes.tab} ${
-                trigger === false ? "" : classes.tabScrolled
-              }`}
-              label="Works"
-            />
-            <Tab
-              className={classes.btn}
-              variant="contained"
-              label="Contact"
+           
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Home"
+                href="#section-1"
+              />
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Services"
+                href="#section-2"
 
-            />
-            
-            
+              />
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Works"
+                href="#section-3"
+
+              />
+              <Tab
+                className={classes.btn}
+                variant="contained"
+                label="Contact"
+                href="#section-4"
+
+              />
           </Tabs>
+          </Scrollspy>
+
         </Grid>
       </Grid>
     </React.Fragment>
