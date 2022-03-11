@@ -13,6 +13,8 @@ import santa from "../Assets/santa.svg";
 import sign from "../Assets/sigg.svg";
 import "aos/dist/aos.css";
 
+import { Link } from "react-router-dom";
+
 import Aos from "aos";
 
 /**
@@ -61,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.font.primary.main,
     color: theme.palette.common.blue,
 
-
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
     },
@@ -84,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     // paddingLeft: "30px",
     [theme.breakpoints.down("xs")]: {
-      marginTop: "20px",
+      marginTop: "40px",
     },
   },
   root: {
@@ -105,16 +106,17 @@ const useStyles = makeStyles((theme) => ({
     width: 135,
     height: 25,
     marginTop: "20px",
-    // margin: "0 auto",
+    color: "white",
     [theme.breakpoints.down("sm")]: {
       fontSize: "11px",
       width: 110,
       marginTop: "20px",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "7px",
-      width: 80,
-      marginTop: "10px",
+      fontSize: "10px",
+      width: 105,
+      height: 23,
+      marginTop: "20px",
       margin: "0 auto",
     },
 
@@ -156,7 +158,6 @@ const Services = (props) => {
     Aos.init();
   }, []);
 
-
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid
@@ -167,7 +168,6 @@ const Services = (props) => {
       alignItems="center"
       className={classes.gridCont}
       id="section-2"
-      
     >
       <Grid
         item
@@ -199,9 +199,15 @@ const Services = (props) => {
           From fullstack web development to Performance.
         </Typography>
         <Grid container direction={matchesXS ? "column" : "row"}>
-          <Button color="secondary" variant="contained" className={classes.btn}>
-            Download CV
-          </Button>
+          <Link target="_blank" to="/cv/kennedy_daniel_cv.pdf" download style={{textDecoration:'none'}}>
+            <Button
+              color="secondary"
+              variant="contained"
+              className={classes.btn}
+            >
+              Download CV
+            </Button>
+          </Link>
         </Grid>
       </Grid>
 
@@ -233,7 +239,7 @@ const Services = (props) => {
                 design is born of those two things
               </p>
               <>
-                <img src={sign} alt='signature' className={classes.tryim} />
+                <img src={sign} alt="signature" className={classes.tryim} />
               </>
             </Grid>
           </CardContent>

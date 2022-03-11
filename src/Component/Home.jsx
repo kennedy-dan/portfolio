@@ -79,25 +79,26 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.font.primary.main,
     color: theme.palette.common.blue,
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.only("md")]: {
       fontSize: "12px",
       // width: "50%",
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.only("sm")]: {
       fontSize: "11px",
       // width: "80%",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.only("xs")]: {
       fontSize: "10px",
       // width: "50%",
       textAlign: "center",
       alignSelf: "center",
+      marginTop: "10px",
     },
   },
   img: {
     width: "620px",
     height: "500px",
-    marginTop: "-60px",
+    marginTop: "-20px",
 
     [theme.breakpoints.only("md")]: {
       width: "550px",
@@ -123,6 +124,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "30px",
     textTransform: "none",
     textDecoration: "none",
+    color: "white",
     [theme.breakpoints.only("sm")]: {
       width: 65,
       height: 20,
@@ -130,10 +132,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "8px",
     },
     [theme.breakpoints.only("xs")]: {
-      width: 65,
-      height: 20,
+      width: 75,
+      height: 23,
       marginTop: "15px",
-      fontSize: "8px",
+      fontSize: "10px",
       alignSelf: "center",
       // textAlign:'center'
     },

@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
 import ClearIcon from "@material-ui/icons/Clear";
+import { Link } from "react-router-dom";
 
 import {
   Tabs,
@@ -48,8 +49,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only("xs")]: {
       // marginTop: "-5em",
       display: "block",
-    marginTop: "5px",
-
+      marginTop: "5px",
     },
     [theme.breakpoints.down("md")]: {
       // marginTop: "-5em",
@@ -229,17 +229,16 @@ export default function Header() {
     <React.Fragment>
       <Grid item>
         <Grid container>
-        <Scrollspy
-              items={["section-1", "section-2", "section-3", "section-4"]}
-              // currentClassName="is-current"
-            >
-          <Tabs
-            centered
-            className={classes.tabContainer}
-            value={value}
-            onChange={handleChange}
+          <Scrollspy
+            items={["section-1", "section-2", "section-3", "section-4"]}
+            // currentClassName="is-current"
           >
-           
+            <Tabs
+              centered
+              className={classes.tabContainer}
+              value={value}
+              onChange={handleChange}
+            >
               <Tab
                 className={`${classes.tab} ${
                   trigger === false ? "" : classes.tabScrolled
@@ -253,7 +252,6 @@ export default function Header() {
                 }`}
                 label="Services"
                 href="#section-2"
-
               />
               <Tab
                 className={`${classes.tab} ${
@@ -261,18 +259,15 @@ export default function Header() {
                 }`}
                 label="Works"
                 href="#section-3"
-
               />
               <Tab
                 className={classes.btn}
                 variant="contained"
                 label="Contact"
                 href="#section-4"
-
               />
-          </Tabs>
+            </Tabs>
           </Scrollspy>
-
         </Grid>
       </Grid>
     </React.Fragment>
@@ -310,18 +305,24 @@ export default function Header() {
                 className={classes.mainListIttem}
               >
                 <ListItemText disableTypography className={classes.drawerList}>
-                  Home
+                  <Link to="#section-1" style={{ textDecoration: "none" }}>
+                    Home
+                  </Link>
                 </ListItemText>
               </ListItem>
               <ListItem button onClick={() => setOpendrawer(false)}>
                 <ListItemText disableTypography className={classes.drawerList}>
-                  Services
+                  <Link to="#section-2" style={{ textDecoration: "none" }}>Services</Link>
                 </ListItemText>
               </ListItem>
-
               <ListItem button onClick={() => setOpendrawer(false)}>
                 <ListItemText disableTypography className={classes.drawerList}>
-                  Contacts
+                  <Link to="#section-3" style={{ textDecoration: "none" }}>Works</Link>
+                </ListItemText>
+              </ListItem>
+              <ListItem button onClick={() => setOpendrawer(false)}>
+                <ListItemText disableTypography className={classes.drawerList}>
+                  <Link to="#section-4" style={{ textDecoration: "none" }}>Contacts</Link>
                 </ListItemText>
               </ListItem>
 

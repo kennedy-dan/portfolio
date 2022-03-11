@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     marginTop: "-50px",
     [theme.breakpoints.down("xs")]: {
-      // marginTop: "10px",
+      paddingTop: "20px",
     },
   },
   root: {
@@ -85,6 +85,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "0px",
+      paddingTop: "20px",
+
     },
   },
   img: {
