@@ -40,8 +40,8 @@ export default createTheme({
       fontWeight: 300,
     },
     btn: {
-      paddingTop:5,
-      paddingBottom:5,
+      // paddingTop:5,
+      // paddingBottom:5,
       fontSize: "13px",
       // position: "relative",
       boxShadow: "2px 3px 8px #fa9a1c",

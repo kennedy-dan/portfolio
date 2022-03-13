@@ -34,10 +34,15 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     scroll: "hidden",
     margin: "0 auto",
+    marginTop: "70px",
+
     // marginTop: "10px",
     zIndex: 1,
     [theme.breakpoints.only("md")]: {
-      marginTop: "10px",
+      marginTop: "50px",
+    },
+    [theme.breakpoints.only("sm")]: {
+      marginTop: "60px",
     },
     [theme.breakpoints.only("xs")]: {
       marginTop: "38px",
@@ -87,6 +92,12 @@ const useStyles = makeStyles((theme) => ({
     // width:'90px',
     // backgroundSize: "cover",
     backgroundPosition: "center",
+    [theme.breakpoints.only("sm")]: {
+      height: "22vh",
+    },
+    [theme.breakpoints.only("xs")]: {
+      height: "22vh",
+    },
     // yIndex:-1
     // backgroundImage: `url(${dot})`,
     // height: "100vh",
@@ -117,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
     width: "130px",
     // heigth:'130px',
     transform: "scale(1)",
-    boxShadow: "0px 9px 15px #fa9a1c",
+    boxShadow: "0px 0px 5px 2px #fa9a1c",
     [theme.breakpoints.down("xs")]: {
       minWidth: "10px",
       marginLeft: "1px",
@@ -129,7 +140,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "10px",
     marginRight: "7px",
     height: "30px",
-    boxShadow: "0px 9px 15px #0B72B9",
+    boxShadow: "0px 0px 5px 2px #fa9a1c",
+
     fontFamily: theme.font.primary.main,
     zIndex: 2,
     // color: theme.palette.common.white,
@@ -153,7 +165,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 2,
     height: "30px",
 
-    boxShadow: "0px 9px 15px #fa9a1c",
+    boxShadow: "0px 0px 5px 2px #fa9a1c",
 
     color: theme.palette.common.white,
     "&:hover": {
@@ -166,6 +178,14 @@ const useStyles = makeStyles((theme) => ({
       // width:'10px'
     },
   },
+  colCover:{
+    marginTop: "30px" ,
+    [theme.breakpoints.only("sm")]: {
+      marginTop: "30px" ,
+   
+      // width:'10px'
+    },
+  }
 }));
 
 const Strength = (props) => {
@@ -211,7 +231,8 @@ const Strength = (props) => {
           direction="column"
           item
           xs={matchesXS ? 12 : 4}
-          style={{ marginTop: "30px" }}
+          style={{ }}
+          className={classes.colCover}
         >
           <Typography
             className={classes.mainheading2}
@@ -254,7 +275,7 @@ const Strength = (props) => {
           className={`${classes.cardsSlider} `}
           item
           xs={matchesXS ? null : 8}
-          style={{ marginTop: "40px" }}
+          // style={{ marginTop: "40px" }}
           container
           data-aos="zoom-in"
           data-aos-offset="200"

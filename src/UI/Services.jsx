@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "220px",
     height: "250px",
-    boxShadow: "0px 7px 25px #fa9a1c",
+    boxShadow: "0px 0px 5px 2px #fa9a1c",
     border: "none",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "200px",
@@ -167,7 +167,7 @@ const Services = (props) => {
       style={{}}
       alignItems="center"
       className={classes.gridCont}
-      id="section-2"
+      id="services"
     >
       <Grid
         item

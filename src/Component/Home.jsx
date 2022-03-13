@@ -188,7 +188,7 @@ const Home = (props) => {
           data-aos-offset="200"
           data-aos-easing="ease-in-sine"
           data-aos-duration="900"
-          id="section-1"
+          id="#"
         >
           <Grid
             item

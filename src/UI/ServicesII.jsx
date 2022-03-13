@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "220px",
     height: "250px",
-    boxShadow: "0px 9px 25px #fa9a1c",
+    boxShadow: "0px 0px 5px 2px #fa9a1c",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "200px",
       height: "230px",

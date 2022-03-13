@@ -5,9 +5,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
 
 import ClearIcon from "@material-ui/icons/Clear";
-import { Link } from "react-router-dom";
 
 import {
   Tabs,
@@ -15,7 +15,6 @@ import {
   Grid,
   List,
   ListItem,
-  ListItemText,
 } from "@material-ui/core";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -138,22 +137,49 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: "1em",
   },
-  btn: {
+  tabscrolledcntct: {
     ...theme.typography.btn,
+    width: 85,
+    height: 25,
+    fontFamily: theme.font.primary.main,
     margin: "10px",
-    outline: "none",
-    // width: '10px',
-    // height: 25,
+    textTransform: "none",
+    textDecoration: "none",
+    color: "white",
+    marginLeft: "25px",
+    minWidth: 5,
+    // width: 75,
+    // height: '10px',
+    // textTransform: "none",
+    // fontWeight: 9000,
+    // color: theme.palette.primary.main,
+    // fontFamily: theme.font.primary.main,
+    // // padding:"-5px",
+    // // color: "white",
+    // fontSize: "10px",
+    // boxShadow: "2px 3px 8px #fa9a1c",
+    // textTransform: "none",
+    // borderRadius: 90,
+    // margin: "10px",
 
-    "&:hover": {
-      boxShadow: "none",
-      backgroundColor: theme.palette.secondary.main,
-      textDecoration: "none",
-      color: theme.palette.primary.main,
-    },
-    "&:active": {
-      outline: "none",
-    },
+    // backgroundColor: theme.palette.secondary.main
+  },
+  btn: {
+    // ...theme.typography.btn,
+    // margin: "10px",
+    // outline: "none",
+    // backgroundColor: theme.palette.secondary.main,
+    // // width: '10px',
+    // // height: 25,
+    // "&:hover": {
+    //   boxShadow: "none",
+    //   backgroundColor: theme.palette.secondary.main,
+    //   textDecoration: "none",
+    //   color: theme.palette.primary.main,
+    // },
+    // "&:active": {
+    //   outline: "none",
+    // },
   },
   scrollBtn: {
     fontSize: "13px",
@@ -176,12 +202,13 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerList: {
     // color: 'black',
-    fontSize: "17px",
+    fontSize: "15px",
     fontWeight: "50px",
     color: theme.palette.primary.main,
     textAlign: "center",
     boxShadow: "none",
     borderRadius: "0px",
+    textTransform: "none",
     "&:hover": {
       boxShadow: "0px",
       // border:"1px solid white"
@@ -230,7 +257,7 @@ export default function Header() {
       <Grid item>
         <Grid container>
           <Scrollspy
-            items={["section-1", "section-2", "section-3", "section-4"]}
+            items={["#", "#services", "works", "contacts"]}
             // currentClassName="is-current"
           >
             <Tabs
@@ -244,28 +271,29 @@ export default function Header() {
                   trigger === false ? "" : classes.tabScrolled
                 }`}
                 label="Home"
-                href="#section-1"
+                href="#"
               />
               <Tab
                 className={`${classes.tab} ${
                   trigger === false ? "" : classes.tabScrolled
                 }`}
                 label="Services"
-                href="#section-2"
+                href="#services"
               />
               <Tab
                 className={`${classes.tab} ${
                   trigger === false ? "" : classes.tabScrolled
                 }`}
                 label="Works"
-                href="#section-3"
+                href="#works"
               />
-              <Tab
-                className={classes.btn}
-                variant="contained"
+              <Button
+                className={classes.tabscrolledcntct}
                 label="Contact"
-                href="#section-4"
-              />
+                href="#contact"
+              >
+                Contact
+              </Button>
             </Tabs>
           </Scrollspy>
         </Grid>
@@ -276,7 +304,7 @@ export default function Header() {
   const drawer = (
     <React.Fragment>
       <SwipeableDrawer
-        anchor={"top"}
+        anchor={"right"}
         disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
         open={openDrawer}
@@ -296,37 +324,53 @@ export default function Header() {
             container
             justifyContent="center"
             align="center"
-            style={{ marginTop: "80px" }}
+            style={{ marginTop: "50px" }}
           >
-            <List disablePadding justifyContent="center" alignItems="center">
-              <ListItem
-                button
-                onClick={() => setOpendrawer(false)}
-                className={classes.mainListIttem}
-              >
-                <ListItemText disableTypography className={classes.drawerList}>
-                  <Link to="#section-1" style={{ textDecoration: "none" }}>
+            <Scrollspy
+              items={["#", "#services", "works", "section-4"]}
+              // currentClassName="is-current"
+            >
+              <List disablePadding justifyContent="center" alignItems="center">
+                <ListItem
+                  button
+                  onClick={() => setOpendrawer(false)}
+                  className={classes.mainListIttem}
+                >
+                  <Tab
+                    disableTypography
+                    className={classes.drawerList}
+                    label="Home"
+                    href="#"
+                  >
                     Home
-                  </Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button onClick={() => setOpendrawer(false)}>
-                <ListItemText disableTypography className={classes.drawerList}>
-                  <Link to="#section-2" style={{ textDecoration: "none" }}>Services</Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button onClick={() => setOpendrawer(false)}>
-                <ListItemText disableTypography className={classes.drawerList}>
-                  <Link to="#section-3" style={{ textDecoration: "none" }}>Works</Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button onClick={() => setOpendrawer(false)}>
-                <ListItemText disableTypography className={classes.drawerList}>
-                  <Link to="#section-4" style={{ textDecoration: "none" }}>Contacts</Link>
-                </ListItemText>
-              </ListItem>
+                  </Tab>
+                </ListItem>
+                <ListItem button onClick={() => setOpendrawer(false)}>
+                  <Tab
+                    disableTypography
+                    className={classes.drawerList}
+                    label="Services"
+                    href="#services"
+                  ></Tab>
+                </ListItem>
+                <ListItem button onClick={() => setOpendrawer(false)}>
+                  <Tab
+                    disableTypography
+                    className={classes.drawerList}
+                    label="Works"
+                    href="#works"
+                  ></Tab>
+                </ListItem>
+                <ListItem button onClick={() => setOpendrawer(false)}>
+                  <Tab
+                    disableTypography
+                    className={classes.drawerList}
+                    label="Contacts"
+                    href="#contact"
+                  ></Tab>
+                </ListItem>
 
-              {/* <ListItem
+                {/* <ListItem
                 button
                 onClick={() => setOpendrawer(false)}
                 style={{ alignSelf: "center" }}
@@ -338,7 +382,8 @@ export default function Header() {
                   Register
                 </ListItemText>
               </ListItem> */}
-            </List>
+              </List>
+            </Scrollspy>
           </Grid>
         </Grid>
       </SwipeableDrawer>

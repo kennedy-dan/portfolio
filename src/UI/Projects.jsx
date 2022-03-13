@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   workCard: {
     width: "480px",
     height: "290px",
-    boxShadow: "0px 7px 25px #fa9a1c",
+    boxShadow: "0px 0px 5px 2px #fa9a1c",
     border: "none",
     [theme.breakpoints.only('xs')]:{
       width:'400px',
@@ -42,7 +42,7 @@ const Projects = () => {
 
   return (
     <Grid container direction="column"
-    id="section-3"
+    id="works"
     
     >
       <Grid item container justifyContent="center">
