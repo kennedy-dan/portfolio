@@ -122,6 +122,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   contactMsg: {
+    ...theme.typography.typo,
     fontSize: "34px",
     zIndex: 1,
     position: "absolute",
@@ -431,9 +432,11 @@ const Brands = (props) => {
             <Grid container direction="column" style={{}}>
               <Grid container justifyContent="center">
                 <div style={{ marginTop: "13px" }}>
+                  <a href="https://facebook.com/kennedy.daniel.946">
                   <Card className={classes.iconcardcover}>
                     <Facebook style={{ color: "#fa9a1c", fontSize: "29px" }} />
                   </Card>
+                  </a>
                 </div>
               </Grid>
               <Grid container justifyContent="space-evenly">
