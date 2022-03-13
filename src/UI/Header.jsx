@@ -9,17 +9,12 @@ import Button from "@material-ui/core/Button";
 
 import ClearIcon from "@material-ui/icons/Clear";
 
-import {
-  Tabs,
-  Tab,
-  Grid,
-  List,
-  ListItem,
-} from "@material-ui/core";
+import { Tabs, Tab, Grid, List, ListItem } from "@material-ui/core";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 import Scrollspy from "react-scrollspy";
 
@@ -148,6 +143,10 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     marginLeft: "25px",
     minWidth: 5,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+      textDecoration: "none",
+    },
     // width: 75,
     // height: '10px',
     // textTransform: "none",
@@ -420,14 +419,16 @@ export default function Header() {
             <Grid container justifyContent="space-between">
               <Grid item xs container justifyContent="space-between">
                 <Grid item>
-                  <Typography
-                    className={`${classes.title} ${
-                      trigger === false ? "" : classes.titleScroll
-                    }`}
-                    noWrap
-                  >
-                    Ken
-                  </Typography>
+                  <a href='/#' style={{textDecoration:"none"}}>
+                    <Typography
+                      className={`${classes.title} ${
+                        trigger === false ? "" : classes.titleScroll
+                      }`}
+                      noWrap
+                    >
+                      Ken
+                    </Typography>
+                  </a>
                 </Grid>
               </Grid>
               <Grid

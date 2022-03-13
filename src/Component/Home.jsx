@@ -125,6 +125,11 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     textDecoration: "none",
     color: "white",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+      textDecoration: "none",
+      boxShadow: "2px 3px 8px #fa9a1c",
+    },
     [theme.breakpoints.only("sm")]: {
       width: 65,
       height: 20,
@@ -144,6 +149,14 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     [theme.breakpoints.only("xs")]: {
       alignSelf: "center",
+    },
+  },
+  typo: {
+    ...theme.typography.typo,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+      textDecoration: "none",
+      boxShadow: "2px 3px 8px #fa9a1c",
     },
   },
 }));
@@ -217,19 +230,20 @@ const Home = (props) => {
               Javascript, and the framework, Reactjs and React-native and Nodejs
               and no-SQL database management tools.
             </Typography>
-            <a
-              href="mailto:kennooox@gmail.com"
-              className={classes.hireMe}
-              style={{}}
+
+            <Button
+              color="secondary"
+              variant="contained"
+              className={classes.btn}
             >
-              <Button
-                color="secondary"
-                variant="contained"
-                className={classes.btn}
+              <a
+                href="mailto:kennooox@gmail.com"
+                className={classes.hireMe}
+                style={{}}
               >
-                Hire Me
-              </Button>
-            </a>
+                <Typography className={classes.typo}>Hire Me</Typography>
+              </a>
+            </Button>
           </Grid>
           <Grid item justifyContent="center" style={{ width: "50%" }} container>
             <img src={mainp} alt="descriptive" className={classes.img} />

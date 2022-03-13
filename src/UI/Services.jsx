@@ -107,6 +107,12 @@ const useStyles = makeStyles((theme) => ({
     height: 25,
     marginTop: "20px",
     color: "white",
+    "&:hover":{
+      backgroundColor: theme.palette.secondary.main,
+      textDecoration: "none",
+      boxShadow: "2px 3px 8px #fa9a1c",
+
+    },
     [theme.breakpoints.down("sm")]: {
       fontSize: "11px",
       width: 110,
@@ -148,6 +154,10 @@ const useStyles = makeStyles((theme) => ({
     height: "60px",
     paddingBottom: "5px",
   },
+  typoEx:{
+    ...theme.typography.typo,
+      
+  }
 }));
 
 const Services = (props) => {
@@ -199,15 +209,19 @@ const Services = (props) => {
           From fullstack web development to Performance.
         </Typography>
         <Grid container direction={matchesXS ? "column" : "row"}>
-          <Link target="_blank" to="/cv/kennedy_daniel_cv.pdf" download style={{textDecoration:'none', alignSelf:'center'}}>
-            <Button
-              color="secondary"
-              variant="contained"
-              className={classes.btn}
+          <Button color="secondary" variant="contained" className={classes.btn}>
+            <Link
+              target="_blank"
+              to="/cv/kennedy_daniel_cv.pdf"
+              download
+              style={{ textDecoration: "none", alignSelf: "center" }}
             >
+              <Typography className={classes.typoEx}>
               Download CV
-            </Button>
-          </Link>
+
+              </Typography>
+            </Link>
+          </Button>
         </Grid>
       </Grid>
 

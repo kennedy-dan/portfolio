@@ -51,6 +51,12 @@ export default createTheme({
       background: "#fa9a1c",
       // width:'28%'
     },
+    typo:{
+      fontFamily: "Poppins",
+      color:'white',
+      fontSize: "13px",
+
+    }
   },
   overrides:{
     MuiInputLabel:{
