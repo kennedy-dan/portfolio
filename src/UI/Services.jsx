@@ -115,12 +115,12 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "11px",
-      width: 110,
+      width: 130,
       marginTop: "20px",
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "10px",
-      width: 105,
+      width: 135,
       height: 23,
       marginTop: "20px",
       margin: "0 auto",

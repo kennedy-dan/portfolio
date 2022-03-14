@@ -131,13 +131,13 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "2px 3px 8px #fa9a1c",
     },
     [theme.breakpoints.only("sm")]: {
-      width: 65,
-      height: 20,
+      width: 85,
+      height: 27,
       marginTop: "15px",
       fontSize: "8px",
     },
     [theme.breakpoints.only("xs")]: {
-      width: 75,
+      width: 85,
       height: 23,
       marginTop: "15px",
       fontSize: "10px",
