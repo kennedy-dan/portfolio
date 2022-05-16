@@ -59,7 +59,7 @@ const Projects = () => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const matchesSM = useMediaQuery(theme.breakpoints.only("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Grid container direction="column"
