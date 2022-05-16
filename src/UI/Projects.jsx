@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import Ify from "../Assets/ifytry.jpg";
 import football from '../Assets/football-project.png'
 
@@ -23,6 +23,13 @@ const useStyles = makeStyles((theme) => ({
       width:'400px',
       height:'220px'
     },
+    [theme.breakpoints.only('md')]:{
+      width:'380px',
+      height:'220px'
+    },
+    [theme.breakpoints.down('sm')]:{
+    marginBottom:"30px"
+    },
     "&:hover":{
     boxShadow: "0px 0px 9px 9px rgb(26, 25, 25, 0.219)",
 
@@ -31,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   workCardContainer:{
     marginTop:'40px',
-    padding: '20px'
+  
   },
   img: {
     width: "480px",
@@ -39,13 +46,20 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only('xs')]:{
       width:'400px',
       height:'220px'
-    }
+    },
+    [theme.breakpoints.only('md')]:{
+      width:'380px',
+      height:'220px'
+    },
     // height: "120px",
   },
 }));
 
 const Projects = () => {
   const classes = useStyles();
+  const theme = useTheme();
+
+  const matchesSM = useMediaQuery(theme.breakpoints.only("sm"));
 
   return (
     <Grid container direction="column"
@@ -55,7 +69,7 @@ const Projects = () => {
       <Grid item container justifyContent="center">
         <p className={classes.myWorks}>My Works</p>
       </Grid>
-      <Grid item container justifyContent="space-between" className={classes.workCardContainer} spacing={2}>
+      <Grid item container justifyContent={`${matchesSM ? 'center' : "space-between"}`} className={classes.workCardContainer}>
         <div className={classes.workCard}>
           <a href='https://dr-ifeyinwa.vercel.app/'>
             <div>
