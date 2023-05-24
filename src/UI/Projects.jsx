@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import Ify from "../Assets/ifytry.jpg";
 import football from '../Assets/football-project.png'
+import myArt from '../Assets/myart.png'
 
 const useStyles = makeStyles((theme) => ({
   myWorks: {
@@ -43,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     width: "480px",
     height: "290px",
+    objectFit: 'cover',
     [theme.breakpoints.only('xs')]:{
       width:'400px',
       height:'220px'
@@ -79,9 +81,9 @@ const Projects = () => {
         </div>
 
         <div className={classes.workCard}>
-          <a href='https://football-flame.vercel.app/'>
+          <a href='https://myartstocks.com/'>
             <div>
-              <img src={football} className={classes.img} alt='ify'/>
+              <img src={myArt} className={classes.img} alt='ify'/>
             </div>
           </a>
         </div>
