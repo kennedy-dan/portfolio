@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import Ify from "../Assets/ifytry.jpg";
 import football from '../Assets/football-project.png'
+import homeint from '../Assets/homeint.png'
 import myArt from '../Assets/myart.png'
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   workCard: {
     width: "480px",
-    height: "290px",
+    // height: "290px",
     
     boxShadow: "0px 0px 5px 5px rgb(26, 25, 25, 0.219)",
     border: "none",
@@ -43,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     width: "480px",
-    height: "290px",
-    objectFit: 'cover',
+    // height: "260px",
+    objectFit: 'contain',
     [theme.breakpoints.only('xs')]:{
       width:'400px',
       height:'220px'
@@ -73,9 +74,9 @@ const Projects = () => {
       </Grid>
       <Grid item container justifyContent={`${matchesSM ? 'center' : "space-between"}`} className={classes.workCardContainer}>
         <div className={classes.workCard}>
-          <a href='https://dr-ifeyinwa.vercel.app/'>
+          <a href='https://home-frontend.vercel.app/'>
             <div>
-              <img src={Ify} className={classes.img} alt='ify'/>
+              <img src={homeint} className={classes.img} alt='ify'/>
             </div>
           </a>
         </div>
