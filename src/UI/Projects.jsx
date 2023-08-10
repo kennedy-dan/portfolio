@@ -5,6 +5,8 @@ import Ify from "../Assets/ifytry.jpg";
 import football from '../Assets/football-project.png'
 import homeint from '../Assets/homeint.png'
 import myArt from '../Assets/myart.png'
+import fintech from '../Assets/fintech.png'
+
 
 const useStyles = makeStyles((theme) => ({
   myWorks: {
@@ -81,7 +83,15 @@ const Projects = () => {
           </a>
         </div>
 
-        <div className={classes.workCard}>
+              <div className={classes.workCard}>
+          <a href='https://fintech-fronend.vercel.app/'>
+            <div>
+              <img src={fintech} className={classes.img} alt='ify'/>
+            </div>
+          </a>
+        </div>
+
+        <div className={classes.workCard} style={{marginTop: '16px'}}>
           <a href='https://myartstocks.com/'>
             <div>
               <img src={myArt} className={classes.img} alt='ify'/>
