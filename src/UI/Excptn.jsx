@@ -107,9 +107,11 @@ const useStyles = makeStyles((theme) => ({
     // width: "100%",
   },
   card: {
-    flex: 1,
+    display:'flex',
+
     width: "130px",
-    // heigth:'130px',
+    justifyContent:"center",
+
     opacity: 1,
     transform: "scale(0.7)",
     // overflowX:'hidden',
@@ -124,11 +126,13 @@ const useStyles = makeStyles((theme) => ({
   },
   activeCard: {
     opacity: 1,
-    flex: 1,
+    display:'flex',
+    // flex: 1,
     width: "130px",
     // heigth:'130px',
     transform: "scale(1)",
     boxShadow: "0px 0px 5px 2px #fa9a1c",
+    justifyContent:"center",
     [theme.breakpoints.down("xs")]: {
       minWidth: "10px",
       marginLeft: "1px",
@@ -300,14 +304,16 @@ const Strength = (props) => {
                 <img
                   src={props.picture}
                   style={{
-                    maxWidth: "50px",
+                    maxWidth: "70px",
+                    width:'70px',
                     // maxHeight: "40px",
 
-                    justifyContent: "center",
-                    justifySelf: "center",
-                    paddingLeft: "40px",
-                    paddingTop: "15px",
-                    paddingBottom: "1px",
+                    // justifyContent: "center",
+                    // justifySelf: "center",
+                    // paddingLeft: "40px",
+                    // paddingTop: "15px",
+                    // paddingBottom: "1px",
+                    objectFit:"contain"
 
                     // paddingLeft: "10px",
                     // paddingRight: "10px",

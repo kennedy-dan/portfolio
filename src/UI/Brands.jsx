@@ -123,21 +123,26 @@ const useStyles = makeStyles((theme) => ({
   },
   contactMsg: {
     ...theme.typography.typo,
-    fontSize: "34px",
+    fontSize: "32px",
     zIndex: 1,
     position: "absolute",
-    top: "40%",
-    left: "50%",
+    top: "50%",
+    left: "38%",
     color: theme.palette.common.blue,
     transform: "translate(-50%, -50%)",
     [theme.breakpoints.only("md")]: {
-      fontSize: "30px",
+      fontSize: "25px",
     },
     [theme.breakpoints.only("sm")]: {
-      fontSize: "24px",
+      fontSize: "22px",
+    top: "54%",
+
     },
     [theme.breakpoints.only("xs")]: {
       fontSize: "25px",
+    top: "43%",
+    left: "43%",
+
     },
   },
 
@@ -254,8 +259,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 9px 15px rgba(0,0,0,0.4)",
     borderRadius: 100,
     padding: "10px",
-    width: "29px",
-    height: "29px",
+    width: "47px",
+    height: "47px",
 
     "&:hover": {
       transition: "transform 0.7s linear",
@@ -267,8 +272,8 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       padding: "5px",
-      width: "29px",
-      height: "29px",
+      width: "47px",
+      height: "47px",
     },
 
   },

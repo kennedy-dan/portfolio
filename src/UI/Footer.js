@@ -18,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
   p2: {
     color: theme.palette.secondary.main,
     textAlign:'center',
-    marginTop:'60px'
+    marginTop:'60px',
+    fontFamily: "Poppins",
+    fontWeight: 700
   }
 }));
 
@@ -26,7 +28,7 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <Grid container direction='column' className={classes.footerContainer}>
-      <p className={classes.p2}>© 2018 kennedy Daniel. All Rights Reserved.</p>
+      <p className={classes.p2} >kennedy Daniel.</p>
 
     </Grid>
   );
