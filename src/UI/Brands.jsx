@@ -224,7 +224,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   contactCoverImg: {
-    width: "900px",
+    width: "1900px",
     height: "320px",
     [theme.breakpoints.only("md")]: {
       width: "450px",
@@ -400,7 +400,7 @@ const Brands = (props) => {
         item
         style={{}}
         className={classes.TextFieldContainer}
-        xs={matchesXS ? null : 4}
+        xs={matchesXS ? null : 6}
       >
         <Grid item container className={classes.contactMsgGrid}>
           <img
