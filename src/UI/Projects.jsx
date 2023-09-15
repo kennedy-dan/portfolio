@@ -73,12 +73,12 @@ const Card = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
           </div>
         </a>
         <div
-          className={`bg-gray-800 flex items-center justify-center absolute inset-0 ${
+          className={`bg-gray-800 flex items-center justify-center px-2 absolute inset-0 ${
             isHovered ? "opacity-90" : "opacity-0"
           } transition-opacity`}
         >
           <div>
-            <p className="text-[#fa9a1c] font-bold">{project.info}</p>
+            <p className="text-[#fa9a1c] font-bold text-center">{project.info}</p>
             <div className="flex justify-center">
               <a href={`${project.link}`} className="rounded-lg py-2 px-2 outline-[#fa9a1c] outline-double mt-2">
                 <AiOutlineLink className="text-[#fa9a1c] text-center" />
