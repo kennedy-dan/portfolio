@@ -158,7 +158,16 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "none",
       boxShadow: "2px 3px 8px #fa9a1c",
     },
+  
   },
+  imgContianer:{
+      width: "50%",
+    [theme.breakpoints.only("xs")]: {
+      width: "80%",
+
+    }
+
+  }
 }));
 
 const Home = (props) => {
@@ -245,7 +254,7 @@ const Home = (props) => {
               </a>
             </Button>
           </Grid>
-          <Grid item justifyContent="center" style={{ width: "50%" }} container>
+          <Grid item justifyContent="center"  className={classes.imgContianer} container>
             <img src={mainp} alt="descriptive" className={classes.img} />
           </Grid>
         </Grid>

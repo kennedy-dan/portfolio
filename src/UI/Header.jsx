@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     // display: "none",
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
+    marginBottom:'15px',
 
     [theme.breakpoints.only("sm")]: {
       display: "block",
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     // display: "none",
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
-
+    marginBottom:'8px',
     [theme.breakpoints.only("xs")]: {
       // marginTop: "5em",
       marginLeft: "1px",
@@ -415,18 +416,18 @@ export default function Header() {
       >
         <Container style={matchesMD ? styleMD : matchesSM ? styleSM : styleLG}>
           <Toolbar disableGutters>
-            <Grid container justifyContent="space-between">
-              <Grid item xs container justifyContent="space-between">
+            <Grid container alignItems="center" className=' items-center justify-between w-ful flex'>
+              <Grid item xs container justifyContent="space-be">
                 <Grid item>
                   <a href='/#' style={{textDecoration:"none"}}>
-                    <Typography
+                    <p
                       className={`${classes.title} ${
                         trigger === false ? "" : classes.titleScroll
                       }`}
                       noWrap
                     >
                       Ken
-                    </Typography>
+                    </p>
                   </a>
                 </Grid>
               </Grid>
