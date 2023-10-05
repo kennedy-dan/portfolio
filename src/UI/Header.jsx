@@ -34,13 +34,12 @@ const useStyles = makeStyles((theme) => ({
     // display: "none",
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
-    marginBottom:'15px',
+    marginBottom: "15px",
 
     [theme.breakpoints.only("sm")]: {
       display: "block",
       // marginTop: "7px",
       marginTop: "14px",
-
     },
     [theme.breakpoints.only("xs")]: {
       // marginTop: "-5em",
@@ -62,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     // display: "none",
     fontFamily: theme.font.primary.main,
     fontWeight: 500,
-    marginBottom:'8px',
+    marginBottom: "8px",
     [theme.breakpoints.only("xs")]: {
       // marginTop: "5em",
       marginLeft: "1px",
@@ -237,7 +236,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const theme = useTheme();
-  const iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   const matchesMD = useMediaQuery(theme.breakpoints.only("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const [openDrawer, setOpendrawer] = useState(false);
@@ -258,7 +257,7 @@ export default function Header() {
       <Grid item>
         <Grid container>
           <Scrollspy
-            items={["#", "#services", "works", "contacts"]}
+            items={["#", "#services", "works", "blog", "contacts"]}
             // currentClassName="is-current"
           >
             <Tabs
@@ -287,6 +286,13 @@ export default function Header() {
                 }`}
                 label="Works"
                 href="#works"
+              />
+              <Tab
+                className={`${classes.tab} ${
+                  trigger === false ? "" : classes.tabScrolled
+                }`}
+                label="Blog"
+                href="https://kennoxx.hashnode.dev/"
               />
               <Button
                 className={classes.tabscrolledcntct}
@@ -366,6 +372,14 @@ export default function Header() {
                   <Tab
                     disableTypography
                     className={classes.drawerList}
+                    label="Blog"
+                    href="https://kennoxx.hashnode.dev/"
+                  ></Tab>
+                </ListItem>
+                <ListItem button onClick={() => setOpendrawer(false)}>
+                  <Tab
+                    disableTypography
+                    className={classes.drawerList}
                     label="Contacts"
                     href="#contact"
                   ></Tab>
@@ -418,10 +432,14 @@ export default function Header() {
       >
         <Container style={matchesMD ? styleMD : matchesSM ? styleSM : styleLG}>
           <Toolbar disableGutters>
-            <Grid container alignItems="center" className=' items-center justify-between w-ful flex'>
+            <Grid
+              container
+              alignItems="center"
+              className=" items-center justify-between w-ful flex"
+            >
               <Grid item xs container justifyContent="space-be">
                 <Grid item>
-                  <a href='/#' style={{textDecoration:"none"}}>
+                  <a href="/#" style={{ textDecoration: "none" }}>
                     <p
                       className={`${classes.title} ${
                         trigger === false ? "" : classes.titleScroll
