@@ -4,6 +4,9 @@ import { Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import Ify from "../Assets/ifytry.jpg";
 import football from "../Assets/football-project.png";
 import homeint from "../Assets/homeint.png";
+import rbw from "../Assets/ryb.png";
+import benue from "../Assets/benue.png";
+import ting from "../Assets/ting.png";
 import myArt from "../Assets/myart.png";
 import fintech from "../Assets/fintech.png";
 import { AiOutlineLink } from "react-icons/ai";
@@ -106,6 +109,21 @@ const Projects = () => {
 
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const projects = [
+    {
+      image: benue,
+      info: "Restaurant application ",
+      link: "https://benue.weout.life/"
+    },
+    {
+      image: ting,
+      info: "Tingo e-commerce web application ",
+      link: "http://tingoexpress.com/"
+    },
+    {
+      image: rbw,
+      info: "Babies e-commerce web application ",
+      link: "http://royalbabiesworld.com/"
+    },
     {
       image: homeint,
       info: "Home e-commerce web application ",
