@@ -72,7 +72,11 @@ const Card = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
       <div className="relative ">
         <a href="https://home-frontend.vercel.app/">
           <div>
-            <img src={project.image} className='h-[200px] w-[470px] object-cover' alt="ify" />
+            <img
+              src={project.image}
+              className="h-[200px] w-[470px] object-cover"
+              alt="ify"
+            />
           </div>
         </a>
         <div
@@ -81,9 +85,14 @@ const Card = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
           } transition-opacity`}
         >
           <div>
-            <p className="text-[#fa9a1c] font-bold text-center">{project.info}</p>
+            <p className="text-[#fa9a1c] font-bold text-center">
+              {project.info}
+            </p>
             <div className="flex justify-center">
-              <a href={`${project.link}`} className="rounded-lg py-2 px-2 outline-[#fa9a1c] outline-double mt-2">
+              <a
+                href={`${project.link}`}
+                className="rounded-lg py-2 px-2 outline-[#fa9a1c] outline-double mt-2"
+              >
                 <AiOutlineLink className="text-[#fa9a1c] text-center" />
               </a>
             </div>
@@ -112,37 +121,37 @@ const Projects = () => {
     {
       image: benue,
       info: "Restaurant application ",
-      link: "https://benue.weout.life/"
+      link: "https://benue.weout.life/",
     },
     {
       image: ting,
       info: "Tingo e-commerce web application ",
-      link: "http://tingoexpress.com/"
+      link: "http://tingoexpress.com/",
     },
     {
       image: rbw,
       info: "Babies e-commerce web application ",
-      link: "http://royalbabiesworld.com/"
+      link: "http://royalbabiesworld.com/",
     },
     {
       image: homeint,
       info: "Home e-commerce web application ",
-      link: "https://home-frontend.vercel.app/"
+      link: "https://home-frontend.vercel.app/",
     },
     {
       image: fintech,
       info: "fintech app with flutterwave integration ",
-      link: "https://fintech-fronend.vercel.app/"
+      link: "https://fintech-fronend.vercel.app/",
     },
     {
       image: myArt,
       info: "Web app for buying art ",
-      link: "https://myartstocks.com/"
+      link: "https://myartstocks.com/",
     },
   ];
 
   return (
-    <div>
+    <div id="services">
       <div className=" w-full mt-20 mb-10 font-[Poppins]">
         <p className="text-4xl text-center text-[#0B72B9] font-bold">
           My Works
