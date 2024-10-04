@@ -212,7 +212,7 @@ const Services = (props) => {
           <Button color="secondary" variant="contained" className={classes.btn}>
             <Link
               target="_blank"
-              to="/cv/ken.pdf"
+              to="/cv/myportfolio.pdf"
               download
               style={{ textDecoration: "none", alignSelf: "center" }}
             >

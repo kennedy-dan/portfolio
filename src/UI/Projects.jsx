@@ -8,6 +8,7 @@ import rbw from "../Assets/ryb.png";
 import benue from "../Assets/benue.png";
 import ting from "../Assets/ting.png";
 import myArt from "../Assets/myart.png";
+import xtremPay from "../Assets/xtrem.png";
 import fintech from "../Assets/fintech.png";
 import { AiOutlineLink } from "react-icons/ai";
 
@@ -143,10 +144,15 @@ const Projects = () => {
       info: "fintech app with flutterwave integration ",
       link: "https://fintech-fronend.vercel.app/",
     },
-    {
-      image: myArt,
-      info: "Web app for buying art ",
-      link: "https://myartstocks.com/",
+    // {
+    //   image: myArt,
+    //   info: "Web app for buying art ",
+    //   link: "https://myartstock-new.vercel.app/",
+    // },
+        {
+      image: xtremPay,
+      info: "Fintech Home Page ",
+      link: "https://xtrempay.vercel.app/",
     },
   ];
 
