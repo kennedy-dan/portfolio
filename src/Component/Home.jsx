@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainHeading3: {
-    width: "90%",
+    // width: "90%",
     fontSize: "14px",
     // textAlign: "center",
     fontFamily: theme.font.primary.main,
@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
   imgContianer:{
       width: "50%",
     [theme.breakpoints.only("xs")]: {
-      width: "80%",
+      width: "100%",
 
     }
 
@@ -191,33 +191,33 @@ const Home = (props) => {
   };
 
   const styleSM = {
-    maxWidth: "90%",
+    maxWidth: "100%",
   };
   return (
     <Grid container direction="column" className={classes.bg}>
       <Container
-        className={`${classes.secondSection} container`}
-        style={matchesMD ? styleMD : matchesSM ? styleSM : styleLG}
+        className={`${classes.secondSection} container lg:max-w-[80%] md:max-w-[85%] max-w-[96%]`}
+        // style={matchesMD ? styleMD : matchesSM ? styleSM : styleLG}
       >
-        <Grid
-          item
+        <div
+          
           container
-          direction={matchesXS ? "column" : "row"}
-          justifyContent={matchesMD ? "center" : "space-evenly"}
-          className={classes.firstRow}
-          alignItems={matchesSM ? "center" : matchesXS ? "center" : null}
+          // direction={matchesXS ? "column" : "row"}
+          // justifyContent={matchesMD ? "center" : "space-evenly"}
+          className={`${classes.firstRow} md:flex `}
+          // alignItems={matchesSM ? "center" : matchesXS ? "center" : null}
           data-aos="zoom-in"
           data-aos-offset="200"
           data-aos-easing="ease-in-sine"
           data-aos-duration="900"
           id="#"
         >
-          <Grid
-            item
-            direction="column"
+          <div
+            className='md:w-[50%]'
+            // direction="column"
             // style={{ width: "40%" }}
-            container
-            xs
+            // container
+            // xs
           >
             <Typography
               className={classes.mainHeading1}
@@ -233,17 +233,17 @@ const Home = (props) => {
             >
               Daniel Kennedy
             </Typography>
-            <Typography className={classes.mainHeading3}>
+            <p className={`${classes.mainHeading3} md:w-[90%] `}>
               I'm a full stack developer with years of experience building
               mobile and web applications using tools like HTML, CSS and
               Javascript, and the framework, Reactjs and React-native and Nodejs
               and no-SQL database management tools.
-            </Typography>
-
-            <Button
+            </p>
+<div className='w-full flex justify-center md:justify-start mt-3' >
+<Button
               color="secondary"
               variant="contained"
-              className={classes.btn}
+              className={` f  `}
             >
               <a
                 href="mailto:kennooox@gmail.com"
@@ -253,11 +253,13 @@ const Home = (props) => {
                 <Typography className={classes.typo}>Hire Me</Typography>
               </a>
             </Button>
-          </Grid>
-          <Grid item justifyContent="center"  className={classes.imgContianer} container>
+</div>
+   
+          </div>
+          <div   className={classes.imgContianer} container>
             <img src={mainp} alt="descriptive" className={classes.img} />
-          </Grid>
-        </Grid>
+          </div>
+        </div>
         <React.Fragment>
           <Services />
           <ServicesII />

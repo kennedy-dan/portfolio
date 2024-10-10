@@ -430,7 +430,9 @@ export default function Header() {
           trigger === false ? "" : classes.appBarScrolled
         }`}
       >
-        <Container style={matchesMD ? styleMD : matchesSM ? styleSM : styleLG}>
+        <Container 
+        className={`container lg:max-w-[80%] md:max-w-[85%] max-w-[96%]`}
+        >
           <Toolbar disableGutters>
             <Grid
               container
