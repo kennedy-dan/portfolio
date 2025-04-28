@@ -81,7 +81,7 @@ const Card = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
           </div>
         </a>
         <div
-          className={`bg-gray-800 flex items-center justify-center px-2 absolute inset-0 ${
+          className={`bg-gray-500 flex items-center w-[470px] justify-center px-2 absolute inset-0 ${
             isHovered ? "opacity-90" : "opacity-0"
           } transition-opacity`}
         >
@@ -152,7 +152,7 @@ const Projects = () => {
         {
       image: xtremPay,
       info: "Fintech Home Page ",
-      link: "https://xtrempay.vercel.app/",
+      link: "https://xtrempay.com/",
     },
   ];
 
@@ -163,7 +163,7 @@ const Projects = () => {
           My Works
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-4 ">
+      <div className="grid md:grid-cols-2 gap-6 ">
         {projects.map((project, index) => (
           <Card
             key={index}
