@@ -9,6 +9,7 @@ import benue from "../Assets/benue.png";
 import ting from "../Assets/ting.png";
 import myArt from "../Assets/myart.png";
 import xtremPay from "../Assets/xtrem.png";
+import weoutadmin from "../Assets/weoutadmin.png";
 import fintech from "../Assets/fintech.png";
 import { AiOutlineLink } from "react-icons/ai";
 
@@ -81,7 +82,7 @@ const Card = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
           </div>
         </a>
         <div
-          className={`bg-gray-500 flex items-center w-[470px] justify-center px-2 absolute inset-0 ${
+          className={`bg-gray-500 flex items-center md:w-[470px] justify-center px-2 absolute inset-0 ${
             isHovered ? "opacity-90" : "opacity-0"
           } transition-opacity`}
         >
@@ -92,6 +93,7 @@ const Card = ({ project, isHovered, onMouseEnter, onMouseLeave }) => {
             <div className="flex justify-center">
               <a
                 href={`${project.link}`}
+                target='_blank'
                 className="rounded-lg py-2 px-2 outline-[#fa9a1c] outline-double mt-2"
               >
                 <AiOutlineLink className="text-[#fa9a1c] text-center" />
@@ -125,9 +127,9 @@ const Projects = () => {
       link: "https://benue.weout.life/",
     },
     {
-      image: ting,
-      info: "Tingo e-commerce web application ",
-      link: "http://tingoexpress.com/",
+      image: weoutadmin,
+      info: "Restaurant admin dashboard ",
+      link: "dine.weout.life/admin/menu",
     },
     {
       image: rbw,
@@ -144,11 +146,11 @@ const Projects = () => {
       info: "fintech app with flutterwave integration ",
       link: "https://fintech-fronend.vercel.app/",
     },
-    // {
-    //   image: myArt,
-    //   info: "Web app for buying art ",
-    //   link: "https://myartstock-new.vercel.app/",
-    // },
+    {
+      image: myArt,
+      info: "Web app for buying art ",
+      link: "https://myartstock-new.vercel.app/",
+    },
         {
       image: xtremPay,
       info: "Fintech Home Page ",
