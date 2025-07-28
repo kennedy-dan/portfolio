@@ -10,7 +10,7 @@ import ting from "../Assets/ting.png";
 import myArt from "../Assets/myart.png";
 import xtremPay from "../Assets/xtrem.png";
 import weoutadmin from "../Assets/weoutadmin.png";
-import fintech from "../Assets/fintech.png";
+import event from "../Assets/event.png";
 import { AiOutlineLink } from "react-icons/ai";
 
 const useStyles = makeStyles((theme) => ({
@@ -142,9 +142,9 @@ const Projects = () => {
       link: "https://home-frontend.vercel.app/",
     },
     {
-      image: fintech,
-      info: "fintech app with flutterwave integration ",
-      link: "https://fintech-fronend.vercel.app/",
+      image: event,
+      info: "Discover and book events, make restaurant reservations, and access exclusive dining promotions. ",
+      link: "https://staging.limpopo.weout.life/",
     },
     {
       image: myArt,
