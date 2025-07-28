@@ -149,7 +149,7 @@ const Projects = () => {
     {
       image: myArt,
       info: "Web app for buying art ",
-      link: "https://myartstock-new.vercel.app/",
+      link: "https://myartstock-tau.vercel.app/",
     },
         {
       image: xtremPay,
