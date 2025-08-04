@@ -453,7 +453,7 @@ const Brands = (props) => {
                   </a>
                 </div>
                 <div className={classes.twitterdiv}>
-                  <a href="https://www.linkedin.com/in/kennedy-daniel-995855199">
+                  <a href="https://www.linkedin.com/in/kennedy-daniel-9b9392346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
                     <Card className={classes.iconcardcover}>
                       <LinkedIn className={classes.TwitterIcon} />
                     </Card>

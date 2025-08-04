@@ -131,11 +131,7 @@ const Projects = () => {
       info: "Restaurant admin dashboard ",
       link: "dine.weout.life/admin/menu",
     },
-    {
-      image: rbw,
-      info: "Babies e-commerce web application ",
-      link: "http://royalbabiesworld.com/",
-    },
+   
     {
       image: homeint,
       info: "Home e-commerce web application ",
